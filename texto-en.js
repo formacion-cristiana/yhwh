@@ -81,7 +81,11 @@ export const TEXT = {
   sortRandom: "Random",
   difficultyTagPrefix: "Difficulty",
   rulesTitle: "Game Rules",
-  rulesBody: `<p>1. Try to guess the capitalized words by adding the missing vowels (+3 points per word)</p>   <p>2. Bonus: Guess the subcategory it belongs to (+1 point)</p>   <p>3. If you guess incorrectly, the turn passes to the next player.</p>   <p>4. If no player guesses correctly, the round ends and clues and/or vowels are revealed to try again.</p>   <p>5. You can use the "REVEAL CLUE" button to force an immediate clue in exchange for 1 point.</p>`
+  rulesBody: `<p>1. Try to guess the capitalized words by adding the missing vowels (+3 points per word)</p>
+  <p>2. Bonus: Guess the subcategory it belongs to (+1 point)</p>
+  <p>3. If you guess incorrectly, the turn passes to the next player.</p>
+  <p>4. If no player guesses correctly, the round ends and clues and/or vowels are revealed to try again.</p>
+  <p>5. You can use the "REVEAL CLUE" button to force an immediate clue in exchange for 1 point.</p>`,
   closeRules: "Close",
   tagsAll:"All"
 };
