@@ -83,7 +83,11 @@ export const TEXT = {
   sortRandom: "Azar",
   difficultyTagPrefix: "Dificultad",
   rulesTitle: "Reglas del Juego",
-  rulesBody: "<p>1. Intenta adivinar la palabra o palabras objetivo y la categoría a la que pertenecen.</p><p>2. Si aciertas solo la categoría o parte de una palabra compuesta, sumarás puntos parciales y el turno pasará al siguiente jugador.</p><p>3. Las conectores y palabras en minúsculas son visibles; solo debes adivinar las palabras escritas en MAYÚSCULAS.</p><p>4. Con el avance de las rondas se irán revelando pistas y vocales.</p><p>5. Puedes usar el botón 'REVELAR PISTA' para forzar una pista inmediata a cambio de 1 punto.</p>",
+  rulesBody: `<p>1. Intenta adivinar las palabras en MAYÚSCULA agregando las vocales que le faltan (+3 puntos por palabra)</p>
+  <p>2. Bonus: Adivinar la sub-categoría a la que pertenece (+1 punto)</p>
+  <p>3. Si no aciertas, el turno pasará al siguiente jugador.</p>
+  <p>4. Si ningún jugador acierta, se termina la ronda y se revelan pistas y/o vocales para volver a intentar</p>
+  <p>5. Puedes usar el botón "REVELAR PISTA" para forzar una pista inmediata a cambio de 1 punto.</p>`,
   closeRules: "Cerrar"
 };
 
