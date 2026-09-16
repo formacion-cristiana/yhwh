@@ -80,7 +80,7 @@ export const TEXT = {
   sortRandom: "Casuale",
   difficultyTagPrefix: "Difficoltà",
   rulesTitle: "Regole del Gioco",
-  rulesBody: "<p>1. Cerca di indovinare la parola o le parole e la categoria a cui appartengono.</p><p>2. Se indovini solo la categoria o parte di una parola composta, otterrai punti parziali e il turno passerà al giocatore successivo.</p><p>3. I connettori e le parole in minuscolo sono visibili; devi solo indovinare le parole in MAIUSCOLO.</p><p>4. Con l'avanzare dei round verranno rivelati indizi e vocali.</p><p>5. Puoi usare il pulsante 'RIVELA INDIZIO' per forzare un indizio immediato al costo di 1 punto.</p>",
+  rulesBody: `<p>1. Prova a indovinare le parole in MAIUSCOLO inserendo le vocali mancanti (+3 punti per parola)</p> <p>2. Bonus: Indovina la sottocategoria a cui appartiene (+1 punto)</p> <p>3. Se non indovini, il turno passerà al giocatore successivo.</p> <p>4. Se nessun giocatore indovina, la manche termina e vengono rivelati indizi e/o vocali per riprovare</p> <p>5. Puoi usare il pulsante "RIVELA INDIZIO" per forzare un indizio immediato in cambio di 1 punto.</p>`,
   closeRules: "Chiudi"
 };
 
