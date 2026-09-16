@@ -81,7 +81,7 @@ export const TEXT = {
   sortRandom: "Random",
   difficultyTagPrefix: "Difficulty",
   rulesTitle: "Game Rules",
-  rulesBody: "<p>1. Try to guess the target word or words and the category they belong to.</p><p>2. If you guess only the category or part of a compound word, you will get partial points and the turn moves to the next player.</p><p>3. Connectors and lowercase words are visible; you only need to guess words in UPPERCASE.</p><p>4. As rounds progress, clues and vowels will be revealed.</p><p>5. You can use the 'REVEAL CLUE' button to force an immediate clue for 1 point.</p>",
+  rulesBody: `<p>1. Try to guess the capitalized words by adding the missing vowels (+3 points per word)</p>   <p>2. Bonus: Guess the subcategory it belongs to (+1 point)</p>   <p>3. If you guess incorrectly, the turn passes to the next player.</p>   <p>4. If no player guesses correctly, the round ends and clues and/or vowels are revealed to try again.</p>   <p>5. You can use the "REVEAL CLUE" button to force an immediate clue in exchange for 1 point.</p>`
   closeRules: "Close",
   tagsAll:"All"
 };
