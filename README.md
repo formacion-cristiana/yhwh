@@ -1,4 +1,4 @@
-# YHWH — Adivina la palabra agregando vocales
+# YHWH — Adivina las palabras agregando vocales
 
 Juego estático para GitHub Pages, sin servidor.
 
@@ -73,10 +73,6 @@ Por ejemplo, si la palabra es `aire`:
 Igualdad estricta. Por ejemplo, si la palabra es`rey`:
 - `ray`: incorrecto
 - `erey`: incorrecto
-
-## GitHub Pages
-
-Sube los cinco archivos principales al repositorio de GitHub Pages y abre la URL del sitio. No requiere npm, React ni build.
 
 
 ## Reglas de juego
