@@ -9,7 +9,7 @@ const $ = (id) => document.getElementById(id);
 const state = {
   players: 2,
   playerNames: [],
-  turnTime: 120,
+  turnTime: 60,
   rTot: 3,
   suggestedCategories: 3,
   selectedCategories: [],
