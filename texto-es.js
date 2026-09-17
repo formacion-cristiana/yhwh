@@ -82,6 +82,7 @@ export const TEXT = {
   sortDifficulty: "Dificultad",
   sortRandom: "Azar",
   difficultyTagPrefix: "Dificultad",
+  tagsAll:"todos",
   rulesTitle: "Reglas del Juego",
   rulesBody: `<p>1. Intenta adivinar las palabras en MAYÚSCULA agregando las vocales que le faltan (+3 puntos por palabra)</p>
   <p>2. Bonus: Adivinar la sub-categoría a la que pertenece (+1 punto)</p>
