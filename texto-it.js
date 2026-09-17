@@ -79,6 +79,9 @@ export const TEXT = {
   sortDifficulty: "Difficoltà",
   sortRandom: "Casuale",
   difficultyTagPrefix: "Difficoltà",
+  tagsAll:"tutti",
+    glosNameTitle:"Glossario dei Nomi",
+  glosTitle:"Glossario di Parole",
   rulesTitle: "Regole del Gioco",
   rulesBody: `<p>1. Prova a indovinare le parole in MAIUSCOLO inserendo le vocali mancanti (+3 punti per parola)</p> <p>2. Bonus: Indovina la sottocategoria a cui appartiene (+1 punto)</p> <p>3. Se non indovini, il turno passerà al giocatore successivo.</p> <p>4. Se nessun giocatore indovina, la manche termina e vengono rivelati indizi e/o vocali per riprovare</p> <p>5. Puoi usare il pulsante "RIVELA INDIZIO" per forzare un indizio immediato in cambio di 1 punto.</p>`,
   closeRules: "Chiudi"
