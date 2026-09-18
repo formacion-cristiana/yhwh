@@ -23,17 +23,19 @@ La lógica del juego no depende de un idioma.
 ### Traducciones
 
 respetar mayúsculas y minúsculas del texto original
-- Italiano:
+
+#### Italiano:
+  
 confirmación: crecima
 prohibido: proibido
-pureza: purezza, no purita
+pureza: purezza, no purità
 fariseos: farisei no parisei
 ENCARNÓ: si è INCARNATO
 dar ropa: dare abiti
 SEÑOR mio & DIOS mio: mio SIGNORE & mio DIO
 '&' se traduce '&'
 
--Ingles:
+#### Ingles:
 A.T. -> O.T.
 tolerar : tolerate
 PUERTAS cerradas: closed GATES
@@ -96,4 +98,4 @@ Igualdad estricta. Por ejemplo, si la palabra es`rey`:
 ### Despliege de banderas
 - Idioma
 
-## Cambios de esta versión
+## Cambios de la última versión
