@@ -29,7 +29,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: relative; /* Ya lo tienes, es el marco de referencia */
+}
+
+/* Agrega esto */
+.header-main-row .logo {
+  position: absolute;
+  left: 0;
+  margin-left:16px;
+  margin-top:16px;
+}
+
+.header-main-row .logo img {
+  height: 50px; /* Ajusta este valor (ej. 30px, 40px, 50px) según el tamaño que prefieras */
+  width: auto;  /* Mantiene la proporción original de la imagen */
+  display: block;
 }
 
 .header-title-container {
