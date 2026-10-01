@@ -15,8 +15,8 @@ export const WORD_DATA = [
       {
         category: "Consagración & Curación",
         fortext: "Vocación de servicio  & Sanación del alma",
-        words: ["ORDEN sacerdotal", "MATRIMONIO", "RECONCILIACIÓN", "UNCIÓN"],
-        help: ["consagración sacerdotal", "consagración conyugal", "perdón de los pecados", "...de los enfermos: alivio & fortaleza"]
+        words: ["ORDEN sagrado", "MATRIMONIO", "RECONCILIACIÓN", "UNCIÓN"],
+        help: ["consagración de diáconos, presbiteros y obispos", "consagración conyugal", "perdón de los pecados", "...de los enfermos: alivio & fortaleza"]
       }
     ]
   },
@@ -29,8 +29,8 @@ export const WORD_DATA = [
       {
         category: "Una vez en la vida",
         fortext: "se pueden renovar pero no repetir",
-        words: ["BAUTISMO", "CONFIRMACIÓN","ORDEN sacerdotal", "MATRIMONIO"],
-        help: ["puerta de la fe",  "sello del Espíritu","consagración sacerdotal","consagración conyugal"]
+        words: ["BAUTISMO", "CONFIRMACIÓN","ORDEN sagrado", "MATRIMONIO"],
+        help: ["puerta de la fe",  "sello del Espíritu","consagración de diáconos, presbiteros y obispos ","consagración conyugal"]
       },
       {
         category: "Periódicos",
@@ -49,7 +49,7 @@ export const WORD_DATA = [
       {
         category: "Opcionales",
         fortext: "para una vida discipular",
-        words: ["ORDEN sacerdotal", "UNCIÓN", "MATRIMONIO", "CONFIRMACIÓN"],
+        words: ["ORDEN sagrado", "UNCIÓN", "MATRIMONIO", "CONFIRMACIÓN"],
         help: ["consagración sacerdotal", "...de los enfermos: alivio & fortaleza", "consagración conyugal", "sello del Espíritu"]
       },
       {
