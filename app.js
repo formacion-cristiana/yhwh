@@ -1,7 +1,7 @@
 let currentLang = "es";
 let WORD_DATA = [];
 let TEXT = {};
-let t = (k, v) => TEXT[k] || k; // Actualizado para buscar en TEXT por defecto
+let t = (k, v) => TEXT[k] || k;
 let EMOJI_MAP = {};
 
 const $ = (id) => document.getElementById(id);
@@ -28,15 +28,15 @@ const state = {
   guessedWordParts: [],
   guessedCategory: false,
   failedSubcategories: new Set(),
-  selectedTag: "todos",
-  remainingSeconds: 120,
+  selectedTags: new Set(["todos"]),
+  tagMatchMode: "union", // "union" | "intersection"
+  remainingSeconds: 60,
   gameOver: false,
   playerColors: [],
   revealType: null,
   lastAwardedPoints: 0,
   categorySortOrder: "az"
 };
-
 
 async function loadLanguage(lang) {
   try {
@@ -54,8 +54,7 @@ async function loadLanguage(lang) {
     
     EMOJI_MAP = textMod.EMOJI_MAP || {};
 
-    // Validar si el tag seleccionado existe en el nuevo idioma; de lo contrario, volver a "todos"
-    if (state.selectedTag !== "todos") {
+    if (!state.selectedTags.has("todos")) {
       const diffPrefix = t("difficultyTagPrefix") || "Dificultad";
       const availableTags = new Set();
       WORD_DATA.forEach(cat => {
@@ -66,14 +65,18 @@ async function loadLanguage(lang) {
           availableTags.add(`${diffPrefix.toLowerCase()} ${cat.dificultad}`);
         }
       });
-      if (!availableTags.has(state.selectedTag.toLowerCase())) {
-        state.selectedTag = "todos";
+      
+      const validTags = new Set([...state.selectedTags].filter(tag => availableTags.has(tag.toLowerCase())));
+      if (validTags.size === 0) {
+        state.selectedTags = new Set(["todos"]);
+      } else {
+        state.selectedTags = validTags;
       }
     }
 
     updatePlayersOptions();
     updateUIElements();
-    renderGlossary(); // Renderizado principal al cargar el idioma
+    renderGlossary();
 
     if ($("screen-game") && !$("screen-game").classList.contains("hidden")) {
       updateGameUIOnLangChange();
@@ -87,7 +90,6 @@ async function loadLanguage(lang) {
   }
 }
 
-// Diccionarios por idioma ampliados para la detección automática
 const DICT_NOMBRES = {
   es: {
     patrones: /\b(HIJO DE|HIJA DE|DE TARSO|EL BAUTISTA|PADRE DE|MADRE DE)\b/i,
@@ -134,16 +136,11 @@ const DICT_NOMBRES = {
   }
 };
 
-// Nueva función de extracción flexible para prefijos ("el CENTURIÓN", "Hijo de ABRAHAM")
 function parseWordStructure(text) {
   const trimmed = text.trim();
-  
-  // Coincide con cualquier prefijo inicial (minúsculas o palabras con minúsculas tipo "Hijo de")
-  // seguido por la palabra principal totalmente en MAYÚSCULAS.
-  const match = trimmed.match(/^(.*?)\s+([A-ZÁÉÍÓÚÜÑ\d–—\-]{2,}.*)$/);
+  const match = trimmed.match(/^(.*?)\s+([A-ZÁÉÍÓÚÜÀÈÌÒÙÑ\d–—\-]{2,}.*)$/);
   
   if (match && match[1].trim() !== "") {
-    // Si la primera parte no es totalmente mayúscula, la tratamos como prefijo
     if (match[1] !== match[1].toUpperCase()) {
       return {
         leadingLower: match[1].trim(),
@@ -167,8 +164,6 @@ function esNombrePropio(item, lang = "es") {
   }
 
   const langConfig = DICT_NOMBRES[lang] || DICT_NOMBRES.es;
-  
-  // normalizar elimina automáticamente las tildes (ej: "BENJAMÍN" -> "BENJAMIN")
   const textoLimpio = normalize(item.mainText);
 
   if (langConfig.patrones && langConfig.patrones.test(item.mainText)) return true;
@@ -177,41 +172,23 @@ function esNombrePropio(item, lang = "es") {
   return palabras.some(p => langConfig.nombres.has(p));
 }
 
-// Función que desglosa frases complejas en palabras/nombres independientes con su contexto
 function extractMultipleWords(text) {
   const trimmed = text.trim();
   const results = [];
 
-  // Expresión regular que detecta: [palabra MAYÚSCULA] + opcionalmente [prefijo/conector] + [palabra MAYÚSCULA]
-  // Ejemplo: "JESÚS hijo de JOSÉ" -> Captura "JESÚS" y "hijo de JOSÉ"
-  const regex = /([A-ZÁÉÍÓÚÜÑ\d–—\-]{2,})(?:\s+([a-zà-ü\s]+)\s+([A-ZÁÉÍÓÚÜÑ\d–—\-]{2,}))?/g;
-  let match;
-
-  // Si tiene la estructura "PALABRA1 conector PALABRA2" (ej. JESÚS hijo de JOSÉ)
-  const fullMatch = trimmed.match(/^([A-ZÁÉÍÓÚÜÑ\d–—\-]{2,})\s+([a-zà-ü\s]+)\s+([A-ZÁÉÍÓÚÜÑ\d–—\-]{2,})$/);
+  const fullMatch = trimmed.match(/^([A-ZÁÉÍÓÚÜÀÈÌÒÙÑ\d–—\-]{2,})\s+([a-zà-ü\s]+)\s+([A-ZÁÉÍÓÚÜÀÈÌÒÙÑ\d–—\-]{2,})$/);
 
   if (fullMatch) {
-    const word1 = fullMatch[1].trim();      // "JESÚS"
-    const connector = fullMatch[2].trim();  // "hijo de"
-    const word2 = fullMatch[3].trim();      // "JOSÉ"
+    const word1 = fullMatch[1].trim();
+    const connector = fullMatch[2].trim();
+    const word2 = fullMatch[3].trim();
 
-    // 1. Primera palabra limpia
-    results.push({
-      leadingLower: "",
-      mainText: word1
-    });
-
-    // 2. Segunda palabra con el conector entre paréntesis
-    results.push({
-      leadingLower: connector,
-      mainText: word2
-    });
-
+    results.push({ leadingLower: "", mainText: word1 });
+    results.push({ leadingLower: connector, mainText: word2 });
     return results;
   }
 
-  // Si es del tipo "el CENTURIÓN" o "visitar al ENFERMO"
-  const singleMatch = trimmed.match(/^(.*?)\s+([A-ZÁÉÍÓÚÜÑ\d–—\-]{2,}.*)$/);
+  const singleMatch = trimmed.match(/^(.*?)\s+([A-ZÁÉÍÓÚÜÀÈÌÒÙÑ\d–—\-]{2,}.*)$/);
   if (singleMatch && singleMatch[1].trim() !== "") {
     if (singleMatch[1] !== singleMatch[1].toUpperCase()) {
       results.push({
@@ -222,12 +199,7 @@ function extractMultipleWords(text) {
     }
   }
 
-  // Palabra o frase única en mayúsculas sin conectores
-  results.push({
-    leadingLower: "",
-    mainText: trimmed
-  });
-
+  results.push({ leadingLower: "", mainText: trimmed });
   return results;
 }
 
@@ -237,7 +209,6 @@ function getGroupLetter(str) {
   const first = norm.charAt(0).toUpperCase();
   return /^[A-ZÑ]$/.test(first) ? first : "#";
 }
-
 
 function renderGlossary() {
   const namesContainer = $("glossary-names-container");
@@ -259,13 +230,20 @@ function renderGlossary() {
   if (categoriesNav) categoriesNav.innerHTML = "";
 
   const diffPrefix = t("difficultyTagPrefix") || "Dificultad";
+  const selectedTagsArray = Array.from(state.selectedTags);
+
   const filteredWordData = WORD_DATA.filter(cat => {
-    if (state.selectedTag === "todos") return true;
+    if (state.selectedTags.has("todos")) return true;
     const tags = Array.isArray(cat.tags) ? cat.tags.map(t => String(t).trim().toLowerCase()) : [];
     if (cat.dificultad !== undefined) {
       tags.push(`${diffPrefix.toLowerCase()} ${cat.dificultad}`);
     }
-    return tags.includes(state.selectedTag);
+
+    if (state.tagMatchMode === "intersection") {
+      return selectedTagsArray.every(t => tags.includes(t));
+    } else {
+      return selectedTagsArray.some(t => tags.includes(t));
+    }
   });
 
   const rawData = [];
@@ -295,15 +273,11 @@ function renderGlossary() {
     return;
   }
 
-  // -------------------------------------------------------------
-  // HELPER DE PARSEO: Requiere mínimo 2 MAYÚSCULAS para la palabra base
-  // -------------------------------------------------------------
   function parseWordEntry(rawStr) {
     const cleanStr = rawStr.trim();
     if (!cleanStr) return null;
 
-    // Detectar palabra de al menos 2 letras MAYÚSCULAS (evita tomar "Te", "We", "El" como base)
-    const uppercaseMatch = cleanStr.match(/[A-ZÁÉÍÓÚÑ]{2,}(?:-[A-ZÁÉÍÓÚÑ]{2,})*/);
+    const uppercaseMatch = cleanStr.match(/[A-ZÁÉÍÓÚÜÀÈÌÒÙÑ]{2,}(?:-[A-ZÁÉÍÓÚÜÀÈÌÒÙÑ]{2,})*/);
     if (!uppercaseMatch) return null;
 
     const mainBase = uppercaseMatch[0].trim();
@@ -326,9 +300,6 @@ function renderGlossary() {
     };
   }
 
-  // -------------------------------------------------------------
-  // 1. PROCESAMIENTO Y AGRUPACIÓN
-  // -------------------------------------------------------------
   const namesMap = new Map();
   const wordsMap = new Map();
 
@@ -386,9 +357,6 @@ function renderGlossary() {
     });
   });
 
-  // -------------------------------------------------------------
-  // 2. RENDERIZADO DE SECCIONES (NOMBRES Y PALABRAS)
-  // -------------------------------------------------------------
   const buildGlossarySection = (itemsMap, targetContainer, navContainer, prefix) => {
     const sortedList = Array.from(itemsMap.values()).sort((a, b) => 
       a.sortKey.localeCompare(b.sortKey, currentLang, { sensitivity: "base" })
@@ -491,7 +459,6 @@ function renderGlossary() {
       li.style.paddingBottom = "8px";
       li.style.borderBottom = "1px dotted rgba(128,128,128,0.25)";
 
-      // Construcción del título con paréntesis en gris (opacidad atenuada)
       const prefixPart = Array.from(entry.prefixes).map(p => `(${p})`).join(" ");
       const suffixPart = Array.from(entry.suffixes).map(s => `(${s})`).join(" ");
 
@@ -543,9 +510,6 @@ function renderGlossary() {
   buildGlossarySection(namesMap, namesContainer, namesNav, "names");
   buildGlossarySection(wordsMap, wordsContainer, wordsNav, "words");
 
-  // -------------------------------------------------------------
-  // 3. GLOSARIO DE CATEGORÍAS
-  // -------------------------------------------------------------
   if (!categoriesContainer) return;
 
   const sortedCategories = [...filteredWordData].filter(c => c && c.category).sort((a, b) => 
@@ -712,7 +676,6 @@ function init() {
     $("config-panel")?.classList.toggle("hidden");
   });
 
-  // Re-renderizar si el usuario abre o cierra el <details>
   const detailsEl = $("glossary-details");
   if (detailsEl) {
     detailsEl.addEventListener("toggle", () => {
@@ -753,13 +716,18 @@ function init() {
     renderCategorySelection();
   });
 
-  // Cargar lenguaje e invocar render de manera asíncrona
+  $("config-tag-mode")?.addEventListener("change", (e) => {
+    state.tagMatchMode = e.target.value;
+    renderCategorySelection();
+    renderGlossary();
+  });
+
   loadLanguage(currentLang).then(() => {
     renderPlayerColorSelection();
     renderTagsCloud();
     renderCategorySelection();
     renderGuessInputs();
-    renderGlossary(); // Forzamos ejecución tras cumplir la promesa de idioma
+    renderGlossary();
   });
 
   $("random-categories")?.addEventListener("click", randomCategories);
@@ -777,10 +745,12 @@ function updateUIElements() {
 
   setText("subtitle", TEXT.subtitle);
   setText("start-title", t("startTitle"));
+  setText("config-title-text", t("startTitle") || TEXT.startTitle || "Configuración de Partida");
   setText("player-colors-title", t("playerColorsTitle") || "Nombres y colores de los jugadores");
   setText("players-label", t("players"));
   setText("time-label", t("time"));
   setText("rounds-label", t("rounds"));
+  setText("glos-cat-title", t("glosCatTitle"));
   setText("glos-name-title", t("glosNameTitle"));
   setText("glos-title", t("glosTitle"));
   setText("categories-title", t("categoriesTitle"));
@@ -796,6 +766,10 @@ function updateUIElements() {
   setText("sort-opt-az", t("sortAZ") || "A-Z (default)");
   setText("sort-opt-difficulty", t("sortDifficulty") || "Dificultad (creciente)");
   setText("sort-opt-random", t("sortRandom") || "Azar");
+  
+  setText("tag-mode-label", t("tagModeLabel") || "Superposición de Tags");
+  setText("tag-mode-union", t("tagModeUnion") || "Unión (cualquiera)");
+  setText("tag-mode-intersection", t("tagModeIntersection") || "Intersección (todos)");
 
   updatePauseButton();
 
@@ -925,7 +899,7 @@ function revealVowels(s, count) {
 
 function formatWordWithEmojis(text) {
   if (!text) return "";
-  return String(text).replace(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/g, m => {
+  return String(text).replace(/[A-Za-zÁÉÍÓÚÜÀÈÌÒÙÑáéíóúüàèìòùñ]+/g, m => {
     const isAllLowercase = m === m.toLowerCase();
     return (isAllLowercase && EMOJI_MAP && EMOJI_MAP[m]) ? EMOJI_MAP[m] : m;
   });
@@ -958,7 +932,6 @@ function flattenData() {
 
   return result;
 }
-
 
 function updatePlayersOptions() {
   const playersSelect = $("players");
@@ -1022,27 +995,33 @@ function getPlayerName(index) {
 
 function renderPlayerColorSelection() {
   ensurePlayerColorsAndNames();
-  const box = $("player-colors");
-  if (!box) return;
+  const container = $("players-config-container");
+  if (!container) return;
+
   const n = Number($("players")?.value) || 1;
-  box.innerHTML = "";
-  
+  container.innerHTML = "";
+
   for (let i = 0; i < n; i++) {
-    const card = document.createElement("div");
-    card.className = "player-card-edit";
+    // Tarjeta individual idéntica a las demás
+    const playerCard = document.createElement("div");
+    playerCard.className = "config-card player-config-card";
+
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "config-label";
+    labelSpan.textContent = `${t("choosePlayerColor") || "Jugador"} ${i + 1}`;
 
     const input = document.createElement("input");
     input.type = "text";
     input.value = state.playerNames[i];
-    input.placeholder = `${t("player")} ${i + 1}`;
+    input.placeholder = `${t("player") || "Jugador"} ${i + 1}`;
     input.addEventListener("input", (e) => {
-      state.playerNames[i] = e.target.value.trim() || `${t("player")} ${i + 1}`;
+      state.playerNames[i] = e.target.value.trim() || `${t("player") || "Jugador"} ${i + 1}`;
     });
 
     const colorPickerContainer = document.createElement("div");
     colorPickerContainer.className = "player-color-picker";
 
-    PLAYER_COLORS.forEach(color => {
+    PLAYER_COLORS.forEach((color) => {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = `color-option ${state.playerColors[i] === color.value ? "selected" : ""}`;
@@ -1054,9 +1033,11 @@ function renderPlayerColorSelection() {
       colorPickerContainer.appendChild(btn);
     });
 
-    card.appendChild(input);
-    card.appendChild(colorPickerContainer);
-    box.appendChild(card);
+    playerCard.appendChild(labelSpan);
+    playerCard.appendChild(input);
+    playerCard.appendChild(colorPickerContainer);
+
+    container.appendChild(playerCard);
   }
 }
 
@@ -1105,12 +1086,27 @@ function renderTagsCloud() {
       fontSize = "1.1rem";
     }
 
-    btn.className = `tag-chip ${state.selectedTag === tag ? "selected" : ""}`;
+    const isSelected = state.selectedTags.has(tag);
+    btn.className = `tag-chip ${isSelected ? "selected" : ""}`;
     btn.style.fontSize = fontSize;
     btn.textContent = (tag === "todos" ? tagsAllLabel : tag).toUpperCase();
 
     btn.addEventListener("click", () => {
-      state.selectedTag = tag;
+      if (tag === "todos") {
+        state.selectedTags = new Set(["todos"]);
+      } else {
+        state.selectedTags.delete("todos");
+        if (state.selectedTags.has(tag)) {
+          state.selectedTags.delete(tag);
+        } else {
+          state.selectedTags.add(tag);
+        }
+
+        if (state.selectedTags.size === 0) {
+          state.selectedTags.add("todos");
+        }
+      }
+
       renderTagsCloud();
       renderCategorySelection();
       renderGlossary();
@@ -1122,14 +1118,23 @@ function renderTagsCloud() {
 
 function getFilteredCategoryIndices() {
   const diffPrefix = t("difficultyTagPrefix") || "Dificultad";
-  
+  const selectedTagsArray = Array.from(state.selectedTags);
+
   let filteredIndices = WORD_DATA.map((cat, index) => {
-    if (state.selectedTag === "todos") return index;
+    if (state.selectedTags.has("todos")) return index;
     const tags = Array.isArray(cat.tags) ? cat.tags.map(t => t.trim().toLowerCase()) : [];
     if (cat.dificultad !== undefined) {
       tags.push(`${diffPrefix.toLowerCase()} ${cat.dificultad}`);
     }
-    return tags.includes(state.selectedTag) ? index : -1;
+
+    let isMatch = false;
+    if (state.tagMatchMode === "intersection") {
+      isMatch = selectedTagsArray.every(t => tags.includes(t));
+    } else {
+      isMatch = selectedTagsArray.some(t => tags.includes(t));
+    }
+
+    return isMatch ? index : -1;
   }).filter(index => index !== -1);
 
   if (state.categorySortOrder === "difficulty") {
@@ -1214,7 +1219,7 @@ function startGame() {
   }
 
   state.players = players;
-  state.turnTime = Math.max(10, Number($("turn-time")?.value) || 120);
+  state.turnTime = Math.max(10, Number($("turn-time")?.value) || 60);
   state.rTot = Math.max(1, Number($("round-total")?.value) || 3);
 
   const selectedSet = new Set(state.selectedCategories);
@@ -1287,7 +1292,7 @@ function getAnswerParts(word) {
   const explicitTargets = [];
 
   parts.forEach(part => {
-    const uppercaseMatches = part.match(/[A-ZÁÉÍÓÚÜÑ]{2,}(?:-[A-ZÁÉÍÓÚÜÑ]{2,})*/g);
+    const uppercaseMatches = part.match(/[A-ZÁÉÍÓÚÜÀÈÌÒÙÑ]{2,}(?:-[A-ZÁÉÍÓÚÜÀÈÌÒÙÑ]{2,})*/g);
     if (uppercaseMatches) {
       explicitTargets.push(...uppercaseMatches);
     }
@@ -1296,7 +1301,7 @@ function getAnswerParts(word) {
   if (explicitTargets.length) return explicitTargets;
 
   return parts.map(part => {
-    const matches = part.match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:-[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*/g);
+    const matches = part.match(/[A-Za-zÁÉÍÓÚÜÀÈÌÒÙÑáéíóúüàèìòùñ]+(?:-[A-Za-zÁÉÍÓÚÜÀÈÌÒÙÑáéíóúüàèìòùñ]+)*/g);
     return matches ? matches.join(" ").trim() : "";
   }).filter(Boolean);
 }
@@ -1357,7 +1362,7 @@ function renderClue() {
   const parts = splitAnswer(raw);
 
   const displayedParts = parts.map(part => {
-    const targetMatches = part.match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:-[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*/g);
+    const targetMatches = part.match(/[A-Za-zÁÉÍÓÚÜÀÈÌÒÙÑáéíóúüàèìòùñ]+(?:-[A-Za-zÁÉÍÓÚÜÀÈÌÒÙÑáéíóúüàèìòùñ]+)*/g);
     if (!targetMatches) return part;
 
     let remaining = part;

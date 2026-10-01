@@ -1,4 +1,4 @@
-# YHWH — Adivina las palabras agregando vocales
+# YHWH — Adivina la palabra agregando vocales
 
 Juego estático para GitHub Pages, sin servidor.
 
@@ -9,6 +9,13 @@ Juego estático para GitHub Pages, sin servidor.
 - `app.js`: lógica del juego.
 - `palabras-es.js`: datos de las palabras.
 - `texto-es.js`: textos visibles de la interfaz.
+
+## Diseño
+
+### Colores
+- #95ACCF Fondo claro
+- #405C85 (Azul marino apagado)
+- #fffdf8(Beige claro)
 
 ## Otro idioma
 
@@ -55,7 +62,7 @@ La estructura esperada es:
 - dificultad: nivel
 - tags
 - categoría dentro de `words` (subcategoría)
-	- en general son dos subcategorías por categoría
+  - en general son dos subcategorías por categoría
 - en general siete palabras por categoría principal, tres en una subcategoría y cuatro en la otra.
 
 `help[i]` corresponde a `words[i]`.

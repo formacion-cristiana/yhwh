@@ -2,8 +2,8 @@ export const EMOJI_MAP = {
   "corazon": "❤️",
   "corazón": "❤️",
   "prohibido": "🚫",
-  "amor": "❤️",
-  "amar": "❤️‍🔥💔",
+  "amor": "❤️‍🔥",
+  "amar": "❤️‍🔥",
   "juicio":"⚖️",
   "justicia":"⚖️",
   "justicias":"⚖️",
@@ -15,12 +15,10 @@ export const TEXT = {
   subtitle: "Adivina la palabra agregando vocales.",
   startTitle: "Configurar partida",
   players: "Cantidad de jugadores",
-  playerColorsTitle: "Colores de los jugadores",
-  choosePlayerColor: "Elige el color para el Jugador {n}",
+  playerColorsTitle: "Colores de los jugadores {n}",
+  choosePlayerColor: "Color y Nombre",
   time: "Tiempo máximo por turno (segundos)",
   rounds: "Rondas de pistas antes de revelar",
-  glosNameTitle:"Glosario de Nombres",
-  glosTitle:"Glosario de Palabras",
   categoriesTitle: "Categorías",
   randomCategories: "Elegir al azar",
   categoryCount: "Selecciona las categorías que entrarán en juego.",
@@ -83,13 +81,20 @@ export const TEXT = {
   sortRandom: "Azar",
   difficultyTagPrefix: "Dificultad",
   tagsAll:"todos",
+  glosNameTitle:"Glosario de Nombres",
+  glosTitle:"Glosario de Palabras",
+  glosCatTitle:"Glosario de Categorías",
   rulesTitle: "Reglas del Juego",
   rulesBody: `<p>1. Intenta adivinar las palabras en MAYÚSCULA agregando las vocales que le faltan (+3 puntos por palabra)</p>
   <p>2. Bonus: Adivinar la sub-categoría a la que pertenece (+1 punto)</p>
   <p>3. Si no aciertas, el turno pasará al siguiente jugador.</p>
   <p>4. Si ningún jugador acierta, se termina la ronda y se revelan pistas y/o vocales para volver a intentar</p>
   <p>5. Puedes usar el botón "REVELAR PISTA" para forzar una pista inmediata a cambio de 1 punto.</p>`,
-  closeRules: "Cerrar"
+  closeRules: "Cerrar",
+  tagModeLabel: "Manejo de Tags",
+  tagModeUnion: "Unión",
+  tagModeIntersection: "Intersección"
+
 };
 
 export function t(key, vars = {}) {

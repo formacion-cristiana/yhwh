@@ -9,6 +9,7 @@
 <body>
   <header class="site-header">
     <div class="header-main-row">
+     <A href="http://formacion-cristiana.github.io" class="logo"><img src="logo-FC.png"></A>
       <div class="header-title-container">
         <h1>YHWH</h1>
       </div>
@@ -40,32 +41,73 @@
         </div>
       </div>
 
-      <div id="config-panel" class="config-panel hidden">
-        <div class="settings-grid">
-          <label><span id="time-label"></span>
-            <input id="turn-time" type="number" min="10" max="3600" step="10" value="120">
-          </label>
-          <label><span id="rounds-label"></span>
-            <input id="round-total" type="number" min="1" max="20" value="3">
-          </label>
-          <label><span>Cantidad de categorías (sugeridas)</span>
-            <input id="config-cat-count" type="number" min="1" max="20" value="3">
-          </label>
-          <label><span id="sort-categories-label"></span>
-      <select id="config-cat-sort">
-        <option value="az" id="sort-opt-az"></option>
-        <option value="difficulty" id="sort-opt-difficulty"></option>
-        <option value="random" id="sort-opt-random"></option>
-      </select>
-    </label>
-        </div>
+<div id="config-panel" class="config-panel hidden">
 
-        <div class="player-color-selection">
-          <h3 id="player-colors-title">Nombres y colores de los jugadores</h3>
-          <div id="player-colors" class="player-colors"></div>
-          <div id="player-color-options" class="player-color-options"></div>
+  <div class="config-header">
+  <span class="config-title">⚙️ <span id="config-title-text"></span></span>
+</div>
+  
+  <div class="settings-grid">
+    <!-- Tiempo por Turno -->
+    <div class="config-card">
+      <label for="turn-time">
+        <span id="time-label" class="config-label">Tiempo por turno</span>
+        <div class="input-with-suffix">
+          <input id="turn-time" type="number" min="10" max="3600" step="10" value="60">
+          <span class="unit-suffix">seg</span>
         </div>
-      </div>
+      </label>
+    </div>
+
+    <!-- Rondas Totales -->
+    <div class="config-card">
+      <label for="round-total">
+        <span id="rounds-label" class="config-label">Rondas totales</span>
+        <input id="round-total" type="number" min="1" max="20" value="3">
+      </label>
+    </div>
+
+    <!-- Cantidad de Categorías -->
+    <div class="config-card">
+      <label for="config-cat-count">
+        <span class="config-label">Categorías sugeridas</span>
+        <input id="config-cat-count" type="number" min="1" max="20" value="3">
+      </label>
+    </div>
+
+    <!-- Orden de Categorías -->
+    <div class="config-card">
+      <label for="config-cat-sort">
+        <span id="sort-categories-label" class="config-label">Ordenar categorías</span>
+        <select id="config-cat-sort">
+          <option value="az" id="sort-opt-az"></option>
+          <option value="difficulty" id="sort-opt-difficulty"></option>
+          <option value="random" id="sort-opt-random"></option>
+        </select>
+      </label>
+    </div>
+
+    <!-- Modo de Tags (Unión / Intersección) -->
+    <div class="config-card">
+      <label for="config-tag-mode">
+        <span id="tag-mode-label" class="config-label">Superposición de Tags</span>
+        <select id="config-tag-mode">
+          <option value="union" id="tag-mode-union"></option>
+          <option value="intersection" id="tag-mode-intersection"></option>
+        </select>
+      </label>
+    </div>
+
+    <div id="players-config-container"></div>
+
+
+
+  </div>
+
+
+</div>
+
+
 
       <div class="tags-selection-container">
         <h3>Tags</h3>
@@ -89,7 +131,7 @@
 <!-- Glosario de Categorías -->
 <details id="glossary-categories-details" style="margin-top: 15px; text-align: left;">
   <summary style="font-weight: bold; cursor: pointer; padding: 10px 0; font-size: 1.1rem; color: var(--primary, #2b6cb0);">
-    Glosario de Categorías
+    <span id="glos-cat-title"></span>  
   </summary>
   <div id="categories-alphabet-nav" class="alphabet-nav" style="display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0;"></div>
   <div id="glossary-categories-container" class="glossary-container" style="padding: 10px 0;"></div>

@@ -2,7 +2,7 @@
 export const WORD_DATA = [
   {
     tags: ["Catechismo", "Sacramenti", "Tradizione"],
-    category: "Sacramenti",
+    category: "Sacramenti [I]",
     dificultad: 1,
     fortext: "Segni efficaci della grazia",
     words: [
@@ -13,11 +13,52 @@ export const WORD_DATA = [
         help: ["porta della fede", "corpo di Cristo", "sigillo dello Spirito"]
       },
       {
-        category: "Guarigione e consacrazione",
-        fortext: "Guarigione dell'anima e vocazione di servizio",
-        words: ["ORDINE sacerdotale", "UNZIONE", "MATRIMONIO", "RICONCILIAZIONE"],
-        help: ["consacrazione sacerdotale", "...degli infermi: sollievo & fortezza", "consagrazione coniugale", "perdono dei peccati"]
+        category: "Consacrazione & Guarigione",
+        fortext: "Vocazione di servizio & Guarigione dell'anima",
+        words: ["ORDINE sacerdotale", "MATRIMONIO", "RICONCILIAZIONE", "UNZIONE"],
+        help: ["consacrazione sacerdotale" "consagrazione coniugale", "perdono dei peccati", "...degli infermi: sollievo & fortezza",]
       }
+    ]
+  },
+  {
+    tags: ["Catechismo","Sacramenti","Tradizione"],
+    category: "Sacramenti [II]",
+    dificultad: 1,
+    fortext: "Segni efficaci di grazia",
+    words: [
+    {
+    categoria: "Una volta nella vita",
+    fortext: "può essere rinnovato ma non ripetuto",
+    words: ["BATTESIMO", "CRECIMA", "ORDINE sacerdotale", "MATRIMONIO"],
+    help: ["porta della fede", "sigillo dello Spirito", "consacrazione sacerdotale", "consacrazione coniugale"]
+
+    },
+    {
+    categoria: "Periodici",
+    fortext: "rafforzano la volontà e la fede",
+    words: ["EUCARISTIA", "UNZIONE", "RICONCILIAZIONE"],
+    help: ["corpo di Cristo", "...degli infermi: sollievo & forza", "perdono dei peccati"]
+    }
+    ]
+  },
+  {
+    tags: ["Catechismo","Sacramenti","Tradizione"],
+    categoria: "Sacramenti [III]",
+    dificultad: 1,
+    fortext: "Segni efficaci di grazia",
+    words: [
+    {
+    categoria: "Facoltativo",
+    fortext: "per una vita di discepolato",
+    words: ["ORDINE sacerdotale", "UNZIONE", "MATRIMONIO", "CRECIMA"],
+    help:["Consacrazione sacerdotale", "...degli infermi: sollievo e forza", "Consacrazione coniugale", "Sigillo dello Spirito"]
+    },
+    {
+    categoria: "Minimi",
+    fortext: "per una vita cristiana",
+    words: ["BATTESIMO", "EUCARISTIA", "RICONCILIAZIONE"],
+    help:["Porta della fede", "Corpo di Cristo", "Perdono dei peccati"]
+    }
     ]
   },
   {
@@ -29,8 +70,8 @@ export const WORD_DATA = [
       {
         category: "SPAZIO & TEMPO",
         fortext: "Ordinamento del cosmo",
-        words: ["GIORNO & NOTTE", "CIELO & SUOLO", "TERRA & MARE", "RIPOSO & SANTIFICAZIONE"],
-        help: ["ciclo del tempo", "firmamento sopra & sotto", "superficie & acque", "settimo giorno"]
+        words: ["GIORNO & NOTTE", "FIRMAMENTO", "TERRA & MARE", "RIPOSO & SANTIFICAZIONE"],
+        help: ["ciclo del tempo", "acque sopra & sotto", "superficie solida & acque caotiche", "settimo giorno"]
       },
       {
         category: "CONTENUTO",
@@ -42,7 +83,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Bibbia", "A.T.", "Morale"],
-    category: "Il Decalogo",
+    category: "Decalogo",
     dificultad: 1,
     fortext: "Leggi della 1a Alleanza",
     words: [
@@ -168,12 +209,12 @@ export const WORD_DATA = [
   {
     tags: ["Bibbia", "Vangeli", "N.T.", "Storia"],
     category: "Intercessione Paterna",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Invocare per un 'figlio'",
     words: [
       {
         category: "Per la VITA",
-        fortext: "La supplica di fronte alla morte",
+        fortext: "La supplica di fronte alla morte o a un non nato",
         words: ["il SACERDOTE chiede un figlio (PROFETA)", "GIAIRO chiede per la figlia MORTA", "il FUNZIONARIO chiede per il figlio MORIBONDO", "la VEDOVA chiede per il figlio MORTO"],
         help: [
           "«Zaccaria, la tua preghiera è stata esaudita» — L'angelo annuncia la nascita di Giovanni",
@@ -197,7 +238,7 @@ export const WORD_DATA = [
   {
     tags: ["Bibbia", "Vangeli", "N.T.", "Storia","Nomi"],
     category: "Comunità",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Nei Vangeli",
     words: [
       {
@@ -241,13 +282,13 @@ export const WORD_DATA = [
     fortext: "Vocazioni ad immagine di Gesù",
     words: [
       {
-        category: "Ministeri (Universali)",
+        category: "Ministeri (Battesimali)",
         fortext: "Cristo l'unto compie la sua missione divina",
         words: ["SACERDOTE", "PROFETA", "RE"],
         help: ["... altare & vittima", "annuncia la verità", "... d'Israele & del Cielo"]
       },
       {
-        category: "Professioni (Personali)",
+        category: "Professioni (Reali & Simboliche)",
         fortext: "Gesù lavora per il corpo e per l'anima degli Uomini",
         words: ["FALEGNAME & AGRICOLTORE", "AVVOCATO & GIUDICE", "MAESTRO & LEGISLATORE", "MEDICO & MILITARE"],
         help: ["lavora il legno & semina la parola", "intercede & amministra la giustizia", "insegna & detta precetti", "... dell'anima & dello spirito"]
@@ -269,15 +310,15 @@ export const WORD_DATA = [
       {
         category: "Psicofisiche",
         fortext: "Pentimento liturgico: cammino quotidiano sul cornicione",
-        words: ["PAROLA", "PENSIERO", "OMISSIONE", "OPERA"],
-        help: ["espressione sociale del linguaggio", "elaborazione di stimoli e informazioni", "non fare - lasciar passare", "agire e fare"]
+        words: ["PAROLA", "PENSIERO", "OPERA", "OMISSIONE"],
+        help: ["espressione sociale del linguaggio", "elaborazione di stimoli e informazioni", "agire e fare", "non fare - lasciar passare"]
       }
     ]
   },
   {
     tags: ["Preghiera", "Maria", "Tradizione"],
-    category: "Il Rosario",
-    dificultad: 4,
+    category: "Rosario",
+    dificultad: 3,
     fortext: "Preghiera Mariana",
     words: [
       {
@@ -300,8 +341,8 @@ export const WORD_DATA = [
   },
   {
     tags: ["Preghiera", "Maria", "Gesù", "Tradizione"],
-    category: "Misteri-I",
-    dificultad: 4,
+    category: "Misteri [I]",
+    dificultad: 3,
     fortext: "Del Rosario",
     words: [
       {
@@ -313,15 +354,15 @@ export const WORD_DATA = [
       {
         category: "Luminosi",
         fortext: "La manifestazione del Regno",
-        words: ["GIORDANO & BATTESIMO", "NOZZE & VINO", "REGNO & CONVERSIONE", "TRASFIGURAZIONE & MONTE", "EUCARISTIA & CENA"],
+        words: ["GIORDANO & BATTESIMO", "NOZZE & VINO", "REGNO & CONVERSIONE", "TRASFIGURAZIONE & MONTAGNA", "EUCARISTIA & CENA"],
         help: ["«Inizio della vita pubblica di Gesù»", "«Il primo miracolo a Cana»", "«L'annuncio di Giovanni e Gesù»", "«Signore, è bello per noi essere qui; facciamo tre tende»", "«Pane, vino, calice»"]
       }
     ]
   },
   {
     tags: ["Preghiera", "Maria", "Gesù", "Tradizione"],
-    category: "Misteri-II",
-    dificultad: 4,
+    category: "Misteri [II]",
+    dificultad: 3,
     fortext: "Del Rosario",
     words: [
       {
@@ -346,20 +387,20 @@ export const WORD_DATA = [
     words: [
       {
         category: "Dio e i suoi amici",
-        fortext: "Rappresentazioni di docilità e innocenza",
+        fortext: "esempi di docilità e vulnerabilità",
         words: ["PECORA & ASINO", "AGNELLO & VERME", "GALLINA & COLOMBA"],
-        help: ["docile & testardo", "innocente & insignificante", "...protettrice & ...della pace"]
+        help: ["docile & resistente", "innocente & insignificante", "...protettrice & ...della pace"]
       },
       {
         category: "Il nemico e i suoi amici",
-        fortext: "Rappresentazioni del pericolo e della astuzia",
+        fortext: "esempi di ribellione e male",
         words: ["MAIALE & CANE", "LUPO & SCORPIONE", "SERPENTE & VOLPE", "CAPRA & AVVOLTOIO"],
         help: ["impuro & vorace", "predatore & velenoso", "astuto & approfittatore", "...di montagna & spazzino"]
       }
     ]
   },
   {
-    tags: ["Chiesa", "Catechismo", "Hodos"],
+    tags: ["Chiesa", "Catechismo", "Vie"],
     category: "Consigli",
     dificultad: 2,
     fortext: "Vie di perfezione cristiana",
@@ -399,8 +440,8 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Catechismo", "Storia", "Hodos"],
-    category: "La storia",
+    tags: ["Catechismo", "Storia", "Vie"],
+    category: "Storia",
     dificultad: 2,
     fortext: "della Salvezza",
     words: [
@@ -413,8 +454,8 @@ export const WORD_DATA = [
       {
         category: "Processi particolari",
         fortext: "ancora di più per chi lo sceglie",
-        words: ["PEDAGOGIA", "COPARTECIPAZIONE", "PROVVIDENZA", "RIVELAZIONE"],
-        help: ["Dio guida e insegna", "Dio invia, unge, ascolta", "Dio assiste", "Dio toglie progressivamente i veli"]
+        words: ["PROVVIDENZA","PEDAGOGIA", "CO-PARTECIPAZIONE", "RIVELAZIONE"],
+        help: ["Dio assiste","Dio guida e insegna", "Dio invia, unge, ascolta",  "Dio toglie progressivamente i veli"]
       }
     ]
   },
@@ -465,16 +506,16 @@ export const WORD_DATA = [
     fortext: "Gesù si è auto-definito con questi simboli",
     words: [
       {
-        category: "del CIELO",
+        category: "del CIELO eterno",
         fortext: "Attributi eterni e di salvezza",
-        words: ["RISURREZIONE & VITA", "LUCE", "VIA & VERITÀ"],
-        help: ["...gloriosa & ...eterna", "...del mondo", "...e vita"]
+        words: ["RISURREZIONE & VITA", "VIA & VERITÀ","PANE"],
+        help: ["...gloriosa & ...eterna", "...e vita","...di vita"]
       },
       {
-        category: "del CAMPO",
-        fortext: "Simboli quotidiani e di sostentamento",
-        words: ["PANE", "VITE", "PASTORE", "PORTA"],
-        help: ["...di vita", "...vera", "il buon...", "...del recinto"]
+        category: "in il MONDO",
+        fortext: "Simboli del campo",
+        words: ["LUCE", "VITE", "PASTORE", "PORTA"],
+        help: ["...del mondo", "...vera", "il buon...", "...del recinto"]
       }
     ]
   },
@@ -501,7 +542,7 @@ export const WORD_DATA = [
   {
     tags: ["Chiesa", "Preghiera", "Maria", "Tradizione"],
     category: "Litanie Mariane",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Titoli e Virtù",
     words: [
       {
@@ -514,7 +555,7 @@ export const WORD_DATA = [
         category: "REGINA della Creazione",
         fortext: "Invocazioni all'intercettrice celeste",
         words: ["SPECCHIO", "ROSA", "STELLA", "RIFUGIO & PORTA"],
-        help: ["...di Giustizia", "...mistica", "...del mattino", "...dei peccatori & ...del cielo"]
+        help: ["...di Giustizia, ...della santità divina", "...mistica", "...del mattino", "...dei peccatori & ...del cielo"]
       }
     ]
   },
@@ -531,7 +572,7 @@ export const WORD_DATA = [
         help: ["pescatori di uomini", "figli del tuono", "(Gv 1) vieni e vedrai"]
       },
       {
-        category: "Il resto",
+        category: "I ultimì 8",
         fortext: "Diversità di carismi",
         words: ["TOMMASO & MATTEO", "GIACOMO & TADDEO", "SIMONE & GIUDA", "PAOLO & MATTIA"],
         help: ["l'incredulo & il pubblicano (ricco)", "il minore (discreto) & Giuda (riflessivo)", "lo zelota (nazionalista) & il tesoriere (traditore)", "persecutore di cristiani & l'eletto a sorte"]
@@ -539,7 +580,7 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Chiesa", "Liturgia", "Storia", "Hodos", "Tradizione"],
+    tags: ["Chiesa", "Liturgia", "Storia", "Vie", "Tradizione"],
     category: "Tempo Liturgico",
     dificultad: 1,
     fortext: "Il calendario della Chiesa",
@@ -567,14 +608,14 @@ export const WORD_DATA = [
       {
         category: "Cuore",
         fortext: "Atteggiamenti interiori benedetti",
-        words: ["cuore PURO", "Poveri in SPIRITO", "cuore MITE"],
+        words: ["cuore PURO", "cuore POVERO", "cuore MITE"],
         help: ["perché vedranno Dio", "perché di essi è il Regno dei Cieli", "perché erediteranno la terra"]
       },
       {
         category: "Giustizia",
-        fortext: "Impegno e prova per la verità",
-        words: ["FAME di giustizia", "PERDONANO le ingiustizie", "OPERANO per la pace", "SOFFRONO ingiustizie"],
-        help: ["e sete", "misericordiosi", "operatori di pace", "a causa del mio nome"]
+        fortext: "Impegno e prova per la pace",
+        words: ["FAME di giustizia", "PERDONANO le in-giustizie", "LAVORANO per la giustizie", "SOFFRONO in-giustizie"],
+        help: ["...e sete", "misericordiosi", "... e la pace", "...a causa del mio nome"]
       }
     ]
   },
@@ -592,9 +633,9 @@ export const WORD_DATA = [
       },
       {
         category: "Elementi",
-        fortext: "Forze naturali rivelatrici",
-        words: ["LUCE", "ACQUA", "ARIA", "FUOCO"],
-        help: ["illumina", "idrata", "ossigena", "trasforma"],
+        fortext: "Simboli fisici che rivelano l'immersione di Dio nel mondo",
+        words: ["PIETRA & ROCCIA", "ACQUA & ARIA", "LUCE & FUOCO"],
+        help: ["...angolare & ...spirituale", "idrata & ossigena", "illumina & trasforma"],
         PN: false
       }
     ]
@@ -709,7 +750,7 @@ export const WORD_DATA = [
         category: "1 solo",
         fortext: "Unicità & Unità",
         words: ["SIGNORE & BATTESIMO & FEDE", "CORPO & SPIRITO", "ANIMA", "CARNE"],
-        help: ["Credo lungo - Efesini 4", "la Chiesa e Dio (Efesini 4)", "...tra i credenti (Atti)", "...tra uomo e donna"]
+        help: ["Credo lungo - Efesini 4 - Si crede in 1 solo Dio e si nasce 1 sola volta", "la Chiesa e Dio (Efesini 4)", "...tra i credenti (Atti)", "...tra uomo e donna"]
       },
       {
         category: "diversità",
@@ -740,22 +781,22 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Hodos", "Logos", "Catechesi"],
+    tags: ["Vie", "Logos", "Catechesi"],
     category: "Theosis",
     dificultad: 3,
     fortext: "Vie di partecipazione alla natura divina",
     words: [
       {
-        category: "Bibliche",
-        fortext: "Tappe bibliche della rivelazione",
+        category: "Tappe Universali",
+        fortext: "Lettura biblica della salvezza",
         words: ["GENESI", "KENOSI", "APOCALISSE"],
         help: ["nascita-origine", "svuotamento", "rivelazione"]
       },
       {
-        category: "conversione",
-        fortext: "Passi nel cammino spirituale",
-        words: ["PRASSI", "CATARSI", "ASCESI", "GNOSI"],
-        help: ["pratica", "purificazione", "disciplina", "conoscenza"]
+        category: "Processi Particolari",
+        fortext: "Conversione nel cammino spirituale",
+        words: ["GNOSI", "CATARSI","PRASSI", "ASCESI"],
+        help: [ "PENSIERO, conoscenza per contemplazione""PAROLA, purificazione, purgatorio","OPERA, fare la volontà di Dio",  "OMISIONE, disciplina"]
       }
     ]
   },
@@ -793,7 +834,7 @@ export const WORD_DATA = [
       },
       {
         category: "CHIESA",
-        fortext: "Unità del popolo radunato",
+        fortext: "Popolo radunato, Corpo mistico",
         words: ["UNANIME", "UNIVERSITÀ", "UNIVERSALE", "UNITÀ"],
         help: ["(At 4,32) Erano un cuore solo e un'anima sola", "Istituzione di studi superiori", "cattolico", "... nella diversità rappresentata dal capo"]
       }
@@ -843,7 +884,7 @@ export const WORD_DATA = [
       {
         category: "Ostili",
         fortext: "Luoghi di prova e ritiro",
-        words: ["DESERTO", "MARE", "MONTE"],
+        words: ["DESERTO", "MARE", "MONTAGNA"],
         help: ["...di Giudea", "...di Galilea (lago)", "...Tabor"]
       }
     ]
@@ -856,22 +897,23 @@ export const WORD_DATA = [
     words: [
       {
         category: "Terra",
-        fortext: "Scenari urbani, protetti",
+        fortext: "Costruzioni recintate che simboleggiano protezione",
         words: ["CITTÀ", "TEMPIO", "CASA", "ORTO"],
-        help: ["...fortificata", "...di Gerusalemme", "...della suocera di Pietro", "...degli ulivi"]
+        help: ["...murata, fortificata. Luogo del popolo.", "...di Gerusalemme. Luogo santo.", "...della suocera di Pietro. Luogo familiare, di guarigione e servizio.", "...degli ulivi (Getsemani). Luogo di ritiro, riposo, tradimento."]
       },
       {
         category: "Acqua",
-        fortext: "Dolce vs Salata",
+        fortext: "Costruzioni che simboleggiano la vita",
         words: ["POZZO", "BARCA", "PISCINA"],
-        help: ["...di Giacobbe", "...dei pescatori", "...di Betesda"]
+        help: ["...di Giacobbe. Fonte d'acqua dolce.", "...dei pescatori.", "...di Betesda. Luogo di purificazione."]
       }
+
     ]
   },
   {
     tags: ["Catechismo", "Ruaj", "Morale"],
     category: "Frutti",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "dello Spirito Santo",
     words: [
       {
@@ -926,15 +968,15 @@ export const WORD_DATA = [
     words: [
       {
         category: "Credo Niceno-Costantinopolitano",
-        fortext: "Affermazioni della fede ecumenica",
-        words: ["PROCEDE", "stessa ADORAZIONE & GLORIA", "HA PARLATO"],
-        help: ["...dal Padre e dal Figlio (Filioque)", "che con il Padre e il Figlio", "per mezzo dei Profeti"]
+        fortext: "Affermazioni teologici",
+        words: ["PROCEDE", "stessa ADORAZIONE & GLORIA", "ha PARLATO"],
+        help: ["...dal Padre e dal Figlio (Filioque)", "...che con il Padre e il Figlio", "...per mezzo dei Profeti"]
       },
       {
         category: "Credo degli Apostoli",
-        fortext: "Sintesi del battesimo apostolico",
+        fortext: "Sintesi della fede",
         words: ["santa CHIESA", "COMUNIONE", "PERDONO", "RISURREZIONE"],
-        help: ["cattolica", "...dei SANTI", "...dei PECCATI", "...della carne"]
+        help: ["Cattolica", "...dei Santi", "...dei peccatti", "...della carne"]
       }
     ]
   },
@@ -946,13 +988,13 @@ export const WORD_DATA = [
     words: [
       {
         category: "Credo Niceno-Costantinopolitano",
-        fortext: "Dogmi sul Figlio",
+        fortext: "Teologia sul Figlio",
         words: ["GENERATO", "si è INCARNATO", "sostanza NATURA"],
         help: ["non creato", "nel grembo di Maria", "del Padre"]
       },
       {
         category: "Credo degli Apostoli",
-        fortext: "Mistero pasquale e venuta finale",
+        fortext: "Sintesi della fede",
         words: ["fu CROCEFISSO", "È RISUSCITATO", "SIEDE", "verrà a GIUDICARE"],
         help: ["...morì e fu sepolto", "...dai morti", "...alla destra di Dio Padre", "...i vivi e i morti"]
       }
@@ -988,18 +1030,18 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Catechesi", "Sacramenti", "Hodos", "Tradizione"],
+    tags: ["Catechesi", "Sacramenti", "Vie", "Tradizione"],
     category: "Sviluppo Cristiano",
     dificultad: 1,
     fortext: "tappe evolutive nella vita di fede",
     words: [
       {
-        category: "Sacramentale",
-        fortext: "tappe con la Chiesa",
+        category: "Cattolico",
+        fortext: "tappe sacramentali con la chiesa",
         words: [
-          "BATTESIMO & RICONCILIAZIONE",
+          "BATTESIMO",
           "COMUNIONE",
-          "crecima & UNZIONE",
+          "CRECIMA",
           "CONSACRAZIONE"
         ],
         help: [
@@ -1022,37 +1064,37 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Catechesi", "Antropologia", "Sacramenti", "Tradizione"],
+    tags: ["Catechesi", "Antropologia", "Sacramenti", "Tradizione","Vie"],
     category: "Sviluppo Umano",
     dificultad: 2,
-    fortext: "tappe evolutive & sacramenti caratteristici",
+    fortext: "Biologico & Spirituale",
     words: [
       {
-        category: "Biologico",
-        fortext: "crescita del corpo fisico",
+        category: "Crescita universale/iniziale",
+        fortext: "Sviluppo del corpo (fisico) & Sacramenti dell'iniziazione",
         words: [
-          "PRIMA INFANZIA & BATTESIMO",
-          "INFANZIA & COMUNIONE",
-          "ADOLESCENZA & crecima"
+          "BAMBINO & BATTESIMO",
+          "FANCIULLO & 1a COMUNIONE",
+          "ADOLESCENTE & CRESIMA"
         ],
         help: [
-          "sviluppo della motricità & ascolto & favella",
-          "sviluppo della lettura & scrittura & consuetudini",
-          "sviluppo della sessualità & moralità & amicizia"
+          "sviluppo della motricità, ascolto e linguaggio & primo sacramento",
+          "sviluppo della lettura, scrittura e consuetudini & nutrimento della fede",
+          "sviluppo della sessualità, moralità e amicizia & fervore dello spirito"
         ]
       },
       {
-        category: "Spirituale",
-        fortext: "maturazione dell'anima",
+        category: "Maturazione individuale/volitiva",
+        fortext: "Sviluppo dell'intelletto (testa) & Sacramenti di servizio e guarigione",
         words: [
-          "GIOVENTÙ & CONSACRAZIONE",
-          "ETÀ ADULTA & RICONCILIAZIONE",
-          "VECCHIAIA & UNZIONE"
+          "GIOVANE & CONSACRAZIONE",
+          "ADULTO & RICONCILIAZIONE",
+          "ANZIANO & UNZIONE"
         ],
         help: [
-          "fase di decisioni & emancipazione",
-          "fase di lavoro & servizio",
-          "fase di riposo & riflessione"
+          "fase di decisioni ed emancipazione",
+          "fase di lavoro e servizio & sacramento per ricominciare quando si sbaglia",
+          "fase di riposo & riflessione & sacramento di forza"
         ]
       }
     ]
@@ -1079,13 +1121,13 @@ export const WORD_DATA = [
   },
   {
     tags: ["Catechesi", "Fisica", "Simboli"],
-    category: "Ciò che è Solare",
+    category: "Solare",
     dificultad: 2,
     fortext: "Un segno grandioso apparve nel cielo: una donna vestita di Sole",
     words: [
       {
-        category: "Fusione Nucleare",
-        fortext: "Il fuoco delle stelle",
+        category: "Elementi della fissione",
+        fortext: "Energia illimitata",
         words: ["PLASMA", "RADIAZIONE", "MASSA"],
         help: ["Più del fuoco", "Onde di luce invisibile", "Attira i pianeti"]
       },
@@ -1099,7 +1141,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Catechesi", "Fisica", "Simboli", "Bibbia", "A.T.", "N.T."],
-    category: "Ciò che è Aereo",
+    category: "Aereo",
     dificultad: 2,
     fortext: "Lo Spirito è come il vento",
     words: [
@@ -1124,7 +1166,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Catechesi", "Fisica", "Simboli", "Bibbia"],
-    category: "Ciò che è Terrestre",
+    category: "Terra",
     dificultad: 2,
     fortext: "Elemento e luogo di lavoro",
     words: [
@@ -1168,7 +1210,7 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Hodos", "Catechesi", "Bibbia", "Logos"],
+    tags: ["Vie", "Catechesi", "Bibbia", "Logos"],
     category: "-α & ω+",
     dificultad: 3,
     fortext: "Prima e dopo il tempo",
@@ -1183,13 +1225,13 @@ export const WORD_DATA = [
         category: "Rivelazione",
         fortext: "Ciò che è nascosto viene alla luce",
         words: ["MATRIMONIO", "GNOSI", "LODE", "RIPOSO"],
-        help: ["Le nozze dell'Agnello", "«Lo vedremo così come egli è» — 1 Gv 3,2", "", "Vado a prepararvi un posto nella casa del Padre mio"]
+        help: ["Le nozze dell'Agnello", "«Lo vedremo così come egli è» — 1 Gv 3,2", "Alleluia! Osanna!", "Vado a prepararvi un posto nella casa del Padre mio"]
       }
     ]
   },
   {
-    tags: ["Hodos", "Bibbia", "N.T."],
-    category: "La Croce",
+    tags: ["Vie", "Bibbia", "N.T."],
+    category: "Croce",
     dificultad: 2,
     fortext: "L'albero della vita",
     words: [
@@ -1223,7 +1265,7 @@ export const WORD_DATA = [
         category: "Al FIGLIO",
         fortext: "nostro Signore",
         words: ["PIETÀ", "PECCATO", "PREGHIERA"],
-        help: ["«…di noi»", "«Tu che togli il…»", "«Accogli la nostra…»"]
+        help: ["«abbi ...di noi»", "«Tu che togli il...»", "«Accogli la nostra...»"]
       }
     ]
   },
@@ -1324,7 +1366,7 @@ export const WORD_DATA = [
     words: [
       {
         category: "Re",
-        fortext: "I Magi d'Oriente",
+        fortext: "Simboli dei poipoli pagani",
         words: ["MELCHIORRE", "GASPARE", "BALDASSARRE", "ERODE"],
         help: [
           "Il vecchio con la barba bianca; porta l'oro",
@@ -1338,22 +1380,22 @@ export const WORD_DATA = [
         fortext: "L'umile dimora del nostro cuore",
         words: ["PASTORI", "ANGELI", "BUE", "ASINO"],
         help: [
-          "«C'erano in quella regione alcuni ...» — Lc 2,8",
-          "«Apparve una moltitudine dell'esercito celeste» — Lc 2,13",
-          "«Il ... conosce il suo proprietario» — Is 1,3",
-          "«L'... la greppia del suo padrone» — Is 1,3"
+          "«C'erano in quella regione alcuni ...» (Lc 2,8)",
+          "«Apparve una moltitudine dell'esercito celeste» (Lc 2,13)",
+          "«Il ... conosce il suo proprietario» (Is 1,3)",
+          "«L'... la greppia del suo padrone» (Is 1,3)"
         ]
       }
     ]
   },
   {
-    tags: ["Hodos", "Bibbia", "Tradizione"],
-    category: "Ciò che è Vecchio",
+    tags: ["Vie", "Bibbia", "Tradizione"],
+    category: "Vecchio",
     dificultad: 1,
     fortext: "non ci sarà più",
     words: [
       {
-        category: "sulla Terra",
+        category: "sulla TERRA",
         fortext: "città salda, santa e illuminata",
         words: ["MARE & SETE", "TEMPIO & PORTE chiuse", "NOTTE & TENEBRE"],
         help: [
@@ -1363,9 +1405,9 @@ export const WORD_DATA = [
         ]
       },
       {
-        category: "nell'anima",
+        category: "nell'ANIMA",
         fortext: "Cielo",
-        words: ["MORTE & LAMENTO", "PIANTO & DOLORE", "MALIZIA & MENZOGNA", "IMPURITÀ & MACCHIA"],
+        words: ["MALIZIA & MENZOGNA","MORTE & LAMENTO", "PIANTO & DOLORE",  "IMPURITÀ & MACCHIA"],
         help: [
           "solo benedizione (Ap 22,3)",
           "corruzione & lamento (Ap 21,4)",
@@ -1401,21 +1443,21 @@ export const WORD_DATA = [
         words: [
           "VENTO & SOFFIO",
           "ACQUA & FUOCO",
-          "DITO"
+          "DITO & MANO"
         ],
         help: [
           "«Lo Spirito di Dio aleggiava sulle acque» (Gen 1,2)",
           "«Nascere da .. e da ...» (Gv 3,5)",
-          "«Se io scaccio i demoni con il ... di Dio» (Lc 11,20)"
+          "«Io scaccio i demoni con il ... di Dio» (Lc 11,20). «La tua destra, o Signore, ha spezzato il nemico.» (Es 15,6)"
         ]
       }
     ]
   },
   {
     tags: ["Bibbia"],
-    category: "IL MIO NOME",
+    category: "NOME",
     dificultad: 1,
-    fortext: "sia santificato",
+    fortext: " di Dio",
     words: [
       {
         category: "Antico Testamento",
@@ -1430,7 +1472,7 @@ export const WORD_DATA = [
       {
         category: "Nuovo Testamento",
         fortext: "Il nome del Figlio",
-        words: ["GESÙ CRISTO", "GESÙ", "EMANUELE", "NAZARENO"],
+        words: ["GESÙ-CRISTO", "GESÙ", "EMANUELE", "NAZARENO"],
         help: [
           "«Genealogia di ..., figlio di Davide, figlio di Abramo» (Mt 1,1) - L'unto",
           "«Essa Partorirà un figlio e tu lo chiamerai ...» (Mt 1,21) - Il salvatore",

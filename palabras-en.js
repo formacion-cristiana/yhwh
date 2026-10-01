@@ -2,7 +2,7 @@
 export const WORD_DATA = [
   {
     tags: ["Catechism", "Sacraments", "Tradition"],
-    category: "Sacraments",
+    category: "Sacraments [I]",
     dificultad: 1,
     fortext: "Efficacious signs of grace",
     words: [
@@ -13,10 +13,50 @@ export const WORD_DATA = [
         help: ["door of faith", "body of Christ", "seal of the Spirit"]
       },
       {
-        category: "Healing and consecration",
-        fortext: "Healing of the soul and vocation of service",
-        words: ["Holy ORDERS", "ANOINTING", "MATRIMONY", "RECONCILIATION"],
-        help: ["priestly consecration", "...of the sick: relief & strength", "marital consecration", "forgiveness of sins"]
+        category: "Consecration & Healing",
+        fortext: "Vocation of service & Healing of the soul",
+        words: ["Holy ORDERS", "MATRIMONY", "RECONCILIATION", "ANOINTING"],
+        help: ["priestly consecration", "marital consecration", "forgiveness of sins", "...of the sick: relief & strength"]
+      }
+    ]
+  },
+    {
+    tags: ["Catechism", "Sacraments", "Tradition"],
+    category: "Sacraments [II]",
+    dificultad: 1,
+    fortext: "Efficacious signs of grace",
+    words: [
+      {
+        category: "Once in a life-time",
+        fortext: "can be renovated but no repeated",
+        words: ["BAPTISM", "CONFIRMATION","Holy ORDERS", "MATRIMONY"],
+        help: ["door of faith",  "seal of the Spirit","priestly consecration","marital consecration"]
+      },
+      {
+        category: "Periodic",
+        fortext: "strengthen will and faith",
+        words: ["EUCHARIST", "ANOINTING", "RECONCILIATION"],
+        help: ["body of Christ", "...of the sick: relief & strength", "forgiveness of sins"]
+      }
+    ]
+  },
+      {
+    tags: ["Catechism", "Sacraments", "Tradition"],
+    category: "Sacraments [III]",
+    dificultad: 1,
+    fortext: "Efficacious signs of grace",
+    words: [
+      {
+        category: "Optional",
+        fortext: "for a desciples's life",
+        words: ["ANOINTING", "CONFIRMATION","Holy ORDERS", "MATRIMONY"],
+        help: [ "...of the sick: relief & strength","seal of the Spirit","priestly consecration","marital consecration"]
+      },
+      {
+        category: "Minimal",
+        fortext: "for a Christian life",
+        words: ["BAPTISM","EUCHARIST", "RECONCILIATION"],
+        help: ["door of faith, renovated once a week", "body of Christ, at least once a year",  "forgiveness of sins, at least once a year"]
       }
     ]
   },
@@ -29,8 +69,8 @@ export const WORD_DATA = [
       {
         category: "SPACE & TIME",
         fortext: "Ordering of the cosmos",
-        words: ["DAY & NIGHT", "HEAVEN & SKY", "EARTH & SEA", "REST & SANCTIFICATION"],
-        help: ["cycle of time", "firmament above & below", "surface & waters", "seventh day"]
+        words: ["DAY & NIGHT", "FIRMAMENT", "EARTH & SEA", "REST & SANCTIFICATION"],
+        help: ["cycle of time", "waters above & below", "solid surface & caotic waters", "seventh day"]
       },
       {
         category: "CONTENT",
@@ -42,7 +82,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Bible", "O.T.", "Morality"],
-    category: "The Decalogue",
+    category: "Decalogue",
     dificultad: 1,
     fortext: "Laws of the 1st Covenant",
     words: [
@@ -168,12 +208,12 @@ export const WORD_DATA = [
   {
     tags: ["Bible", "Gospels", "N.T.", "History"],
     category: "Paternal Intercession",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Pleading for a 'child'",
     words: [
       {
         category: "For LIFE",
-        fortext: "Plea in the face of death",
+        fortext: "The plea in the face of death or an unborn",
         words: ["the PRIEST asks for a son (PROPHET)", "JAIRUS asks for his DEAD daughter", "the OFFICIAL asks for his DYING son", "the WIDOW asks for her DEAD son"],
         help: [
           "«Zechariah, your prayer has been heard» — The angel announces the birth of John",
@@ -197,7 +237,7 @@ export const WORD_DATA = [
   {
     tags: ["Bible", "Gospels", "N.T.", "History","Names"],
     category: "Communities",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "In the Gospels",
     words: [
       {
@@ -241,13 +281,13 @@ export const WORD_DATA = [
     fortext: "Vocations in the image of Jesus",
     words: [
       {
-        category: "Ministries (Universal)",
+        category: "Ministries (Batptismal)",
         fortext: "Christ the anointed fulfills his divine mission",
         words: ["PRIEST", "PROPHET", "KING"],
         help: ["... altar & victim", "announces the truth", "... of Israel & Heaven"]
       },
       {
-        category: "Professions (Personal)",
+        category: "Professions (Real & Symbolic)",
         fortext: "Jesus works for the body and soul of Men",
         words: ["CARPENTER & FARMER", "ADVOCATE & JUDGE", "TEACHER & LAWGIVER", "PHYSICIAN & SOLDIER"],
         help: ["works with wood & sows the word", "intercedes & administers justice", "teaches & dictates precepts", "... of the soul & spirit"]
@@ -269,15 +309,15 @@ export const WORD_DATA = [
       {
         category: "Psychophysical",
         fortext: "Liturgical repentance: daily path on the edge",
-        words: ["WORD", "THOUGHT", "OMISSION", "DEED"],
-        help: ["social expression of language", "processing of stimuli and information", "failing to act - letting pass", "moving and doing"]
+        words: [ "THOUGHT","WORD", "DEED", "OMISSION"],
+        help: [ "processing of stimuli and information", "social expression of language", "moving and doing","failing to act - letting pass"]
       }
     ]
   },
   {
     tags: ["Prayer", "Mary", "Tradition"],
     category: "The Rosary",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Marian Prayer",
     words: [
       {
@@ -301,7 +341,7 @@ export const WORD_DATA = [
   {
     tags: ["Prayer", "Mary", "Jesus", "Tradition"],
     category: "Mysteries-I",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Of the Rosary",
     words: [
       {
@@ -313,7 +353,7 @@ export const WORD_DATA = [
       {
         category: "Luminous",
         fortext: "Manifestation of the Kingdom",
-        words: ["JORDAN & BAPTISM", "WEDDING & WINE", "KINGDOM & CONVERSION", "TRANSFIGURATION & MOUNT", "EUCHARIST & SUPPER"],
+        words: ["JORDAN & BAPTISM", "WEDDING & WINE", "KINGDOM & CONVERSION", "TRANSFIGURATION & MOUNTAIN", "EUCHARIST & SUPPER"],
         help: ["«Beginning of Jesus' public life»", "«The first miracle at Cana»", "«The proclamation of John and Jesus»", "«Lord, it is good for us to be here; let us build 3 tents»", "«Bread, wine, chalice»"]
       }
     ]
@@ -321,7 +361,7 @@ export const WORD_DATA = [
   {
     tags: ["Prayer", "Mary", "Jesus", "Tradition"],
     category: "Mysteries-II",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Of the Rosary",
     words: [
       {
@@ -346,20 +386,20 @@ export const WORD_DATA = [
     words: [
       {
         category: "God and his friends",
-        fortext: "Representations of docility and innocence",
+        fortext: "examples of docility and vulnerability",
         words: ["SHEEP & DONKEY", "LAMB & WORM", "HEN & DOVE"],
-        help: ["docile & stubborn", "innocent & insignificant", "...protective & ...of peace"]
+        help: ["docile & resistent", "innocent & insignificant", "...protective & ...of peace"]
       },
       {
         category: "The enemy and his friends",
-        fortext: "Representations of danger and cunning",
+        fortext: "examples of rebellion and evil",
         words: ["PIG & DOG", "WOLF & SCORPION", "SERPENT & FOX", "GOAT & VULTURE"],
         help: ["unclean & voracious", "predator & poisonous", "shrewd & opportunistic", "...mountain goat & scavenger"]
       }
     ]
   },
   {
-    tags: ["Church", "Catechism", "Hodos"],
+    tags: ["Church", "Catechism", "Ways"],
     category: "Counsels",
     dificultad: 2,
     fortext: "Ways of Christian perfection",
@@ -399,8 +439,8 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Catechism", "History", "Hodos"],
-    category: "The History",
+    tags: ["Catechism", "History", "Ways"],
+    category: "History",
     dificultad: 2,
     fortext: "of Salvation",
     words: [
@@ -413,8 +453,8 @@ export const WORD_DATA = [
       {
         category: "Particular Processes",
         fortext: "all the more for those who choose it",
-        words: ["PEDAGOGY", "CO-PARTICIPATION", "PROVIDENCE", "REVELATION"],
-        help: ["God guides and teaches", "God sends, anoints, hears", "God assists", "God gradually lifts veils"]
+        words: ["PROVIDENCE", "PEDAGOGY", "CO-PARTICIPATION", "REVELATION"],
+        help: ["God assists", "God guides and teaches", "God sends, anoints, hears", "God gradually lifts veils"]
       }
     ]
   },
@@ -467,14 +507,14 @@ export const WORD_DATA = [
       {
         category: "from HEAVEN",
         fortext: "Eternal attributes of salvation",
-        words: ["RESURRECTION & LIFE", "LIGHT", "WAY & TRUTH"],
-        help: ["...glorious & ...eternal", "...of the world", "...and life"]
+        words: ["RESURRECTION & LIFE", "WAY & TRUTH","BREAD"],
+        help: ["...glorious & ...eternal", "...and life","...of life"]
       },
       {
-        category: "from the FIELD",
-        fortext: "Everyday symbols of sustenance",
-        words: ["BREAD", "VINE", "SHEPHERD", "DOOR"],
-        help: ["...of life", "...true", "the good...", "...of the sheepfold"]
+        category: "in the WORLD",
+        fortext: "Symbols from the field",
+        words: ["LIGHT", "VINE", "SHEPHERD", "DOOR"],
+        help: [ "...of the world", "true...", "the good...", "...of the sheepfold"]
       }
     ]
   },
@@ -501,7 +541,7 @@ export const WORD_DATA = [
   {
     tags: ["Church", "Prayer", "Mary", "Tradition"],
     category: "Marian Litanies",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "Titles and Virtues",
     words: [
       {
@@ -514,7 +554,7 @@ export const WORD_DATA = [
         category: "QUEEN of Creation",
         fortext: "Invocations to the heavenly intercessor",
         words: ["MIRROR", "ROSE", "STAR", "REFUGE & GATE"],
-        help: ["...of justice", "mystical...", "morning...", "...of sinners & ...of heaven"]
+        help: ["...of justice, ...of divine holiness", "mystical...", "morning...", "...of sinners & ...of heaven"]
       }
     ]
   },
@@ -531,15 +571,15 @@ export const WORD_DATA = [
         help: ["fishers of men", "sons of thunder", "(Jn 1) come and see"]
       },
       {
-        category: "The rest",
+        category: "The last 8",
         fortext: "Diversity of charisms",
         words: ["THOMAS & MATTHEW", "JAMES & THADDEUS", "SIMON & JUDAS", "PAUL & MATTHIAS"],
-        help: ["the doubter & the tax collector (rich)", "the lesser (discreet) & Jude (thoughtful)", "the zealot (nationalist) & the treasurer (traitor)", "persecutor of Christians & chosen by lot"]
+        help: ["the doubter & the tax collector (rich)", "the lesser (discreet) & Judas (thoughtful)", "the zealot (nationalist) & the treasurer (traitor)", "persecutor of Christians & chosen by lot"]
       }
     ]
   },
   {
-    tags: ["Church", "Liturgy", "History", "Hodos", "Tradition"],
+    tags: ["Church", "Liturgy", "History", "Ways", "Tradition"],
     category: "Liturgical Season",
     dificultad: 1,
     fortext: "The Church's calendar",
@@ -567,14 +607,14 @@ export const WORD_DATA = [
       {
         category: "Heart",
         fortext: "Blessed inner attitudes",
-        words: ["PURE in heart", "POOR in spirit", "MEEK in heart"],
+        words: ["PURE in heart", "POOR in heart", "MEEK in heart"],
         help: ["for they shall see God", "for theirs is the Kingdom of Heaven", "for they shall inherit the earth"]
       },
       {
         category: "Justice",
-        fortext: "Commitment and trials for truth",
-        words: ["HUNGER for justice", "FORGIVE in-justice", "PEACEMAKERS", "SUFFER in-justice"],
-        help: ["and thirst", "merciful", "work for peace", "for my name's sake"]
+        fortext: "Commitment and trials for peace",
+        words: ["HUNGER for justice", "FORGIVE in-justice", "WORK for justice", "SUFFER in-justice"],
+        help: ["...and thirst", "merciful", "...and peace", "...for my name's sake"]
       }
     ]
   },
@@ -586,15 +626,15 @@ export const WORD_DATA = [
     words: [
       {
         category: "Animals",
-        fortext: "Creatures with theological meaning",
+        fortext: "creatures with theological meaning",
         words: ["DOVE", "LION", "LAMB"],
         help: ["...of peace", "...of Judah", "...who takes away the sin of the world"]
       },
       {
         category: "Elements",
-        fortext: "Revealing natural forces",
-        words: ["LIGHT", "WATER", "AIR", "FIRE"],
-        help: ["illuminates", "hydrates", "oxygenates", "transforms"],
+        fortext: "physical symbols revealing God's immersion in the world",
+        words: ["STONE & ROCK", "WATER & AIR", "LIGHT & FIRE"],
+        help: ["angular... & spiritual...(1Co 10)", "hydrates & oxygenates", "illuminates & transforms"],
         PN: false
       }
     ]
@@ -709,7 +749,7 @@ export const WORD_DATA = [
         category: "1 alone",
         fortext: "Uniqueness & Unity",
         words: ["LORD & BAPTISM & FAITH", "BODY & SPIRIT", "SOUL", "FLESH"],
-        help: ["Nicene Creed - Ephesians 4", "the Church and God (Ephesians 4)", "...among believers (Acts)", "...between man and woman"]
+        help: ["Long Creed - Ephesians 4 - We believe in only one God and we are born only once.", "the Church and God (Ephesians 4)", "...among believers (Acts)", "...between man and woman"]
       },
       {
         category: "diversity",
@@ -740,22 +780,22 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Hodos", "Logos", "Catechesis"],
+    tags: ["Ways", "Logos", "Catechesis"],
     category: "Theosis",
     dificultad: 3,
     fortext: "Paths of participation in divine nature",
     words: [
       {
-        category: "Biblical",
-        fortext: "Biblical milestones of revelation",
+        category: "Universal Milestones",
+        fortext: "Biblical reading of salvation",
         words: ["GENESIS", "KENOSIS", "APOCALYPSE"],
         help: ["birth-origin", "self-emptying", "revelation"]
       },
       {
-        category: "conversion",
-        fortext: "Steps in the spiritual journey",
-        words: ["PRAXIS", "CATHARSIS", "ASCESIS", "GNOSIS"],
-        help: ["practice", "purification", "discipline", "knowledge"]
+        category: "Particular Processes",
+        fortext: "Conversion on the spiritual path",
+        words: [ "GNOSIS", "CATHARSIS","PRAXIS", "ASCESIS"],
+        help: ["THOUGHT, knowledge by contemplation", "WORD, purification, purgatory","DEED, practice God's will", "OMISSION, discipline"]
       }
     ]
   },
@@ -787,13 +827,13 @@ export const WORD_DATA = [
     words: [
       {
         category: "CREATOR & CREATURE",
-        fortext: "Uniqueness in Creation and the Son",
-        words: ["ONE", "ONLY-BEGOTTEN", "UNIVERSE"],
+        fortext: "Uniqueness in Creation and in the Son",
+        words: ["ONE", "ONLYBEGOTTEN", "UNIVERSE"],
         help: ["Triune God and ...", "(1Jn 4:9) God sent his Son…", "The single version of Creation"]
       },
       {
         category: "CHURCH",
-        fortext: "Unity of the gathered people",
+        fortext: "Gathered people, mistical body",
         words: ["UNANIMOUS", "UNIVERSITY", "UNIVERSAL", "UNITY"],
         help: ["(Acts 4:32) They were of one heart and soul", "Institution of higher learning", "catholic", "... in diversity represented by the head"]
       }
@@ -844,7 +884,7 @@ export const WORD_DATA = [
         category: "Hostile",
         fortext: "Places of trial and retreat",
         words: ["DESERT", "SEA", "MOUNTAIN"],
-        help: ["...of Judea", "...of Galilee (lake)", "Mount... Tabor"]
+        help: ["...of Judea", "...of Galilee (lake)", "... Tabor"]
       }
     ]
   },
@@ -855,23 +895,23 @@ export const WORD_DATA = [
     fortext: "visited by Jesus",
     words: [
       {
-        category: "Land",
-        fortext: "Urban settings, protected places",
-        words: ["CITY", "TEMPLE", "HOUSE", "GARDEN"],
-        help: ["walled...", "...of Jerusalem", "...of Peter's mother-in-law", "...of Olives"]
+        category: "Earth",
+        fortext: "Fenced structures that symbolize protection",
+        words: ["CITY", "TEMPLE", "HOUSE", "ORCHARD"],
+        help: ["walled... Place of the people.", "...of Jerusalem. Holy place.", "...of Peter's mother-in-law. Place of family, healing, and service.", "...of olives (Gethsemane). Place of retreat, rest, betrayal."]
       },
       {
         category: "Water",
-        fortext: "Fresh vs Salty",
+        fortext: "Structures that symbolize life",
         words: ["WELL", "BOAT", "POOL"],
-        help: ["...of Jacob", "...of the fishermen", "...of Bethesda"]
+        help: ["...of Jacob. Source of fresh water.", "...of the fishermen.", "...of Bethesda. Place of purification."]
       }
     ]
   },
   {
     tags: ["Catechism", "Ruaj", "Morality"],
     category: "Fruits",
-    dificultad: 4,
+    dificultad: 3,
     fortext: "of the Holy Spirit",
     words: [
       {
@@ -926,13 +966,13 @@ export const WORD_DATA = [
     words: [
       {
         category: "Nicene-Constantinopolitan Creed",
-        fortext: "Affirmations of the ecumenical faith",
+        fortext: "Theological affirmations",
         words: ["PROCEEDS", "same WORSHIP & GLORY", "SPOKE"],
         help: ["...from the Father and the Son (Filioque)", "who with the Father and the Son", "through the Prophets"]
       },
       {
         category: "Apostles' Creed",
-        fortext: "Summary of apostolic baptism",
+        fortext: "Summary of the faith",
         words: ["Holy CHURCH", "COMMUNION", "FORGIVENESS", "RESURRECTION"],
         help: ["catholic", "...of SAINTS", "...of SINS", "...of the body"]
       }
@@ -946,14 +986,14 @@ export const WORD_DATA = [
     words: [
       {
         category: "Nicene-Constantinopolitan Creed",
-        fortext: "Dogmas regarding the Son",
+        fortext: "Theology regarding the Son",
         words: ["BEGOTTEN", "INCARNATE", "CONSUBSTANTIAL"],
-        help: ["not made", "by the Holy Spirit of the Virgin Mary", "with the Father"]
+        help: ["...not made", "...by the Holy Spirit of the Virgin Mary", "...with the Father"]
       },
       {
         category: "Apostles' Creed",
-        fortext: "Paschal mystery and final coming",
-        words: ["was CRUCIFIED", "ROSE AGAIN", "SEATED", "come to JUDGE"],
+        fortext: "Summary of the faith",
+        words: ["was CRUCIFIED", "ROSE", "SEATED", "come to JUDGE"],
         help: ["...died and was buried", "...from the dead", "...at the right hand of God Father", "...the living and the dead"]
       }
     ]
@@ -988,18 +1028,18 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Catechesis", "Sacraments", "Hodos", "Tradition"],
-    category: "Christian Growth",
+    tags: ["Catechesis", "Sacraments", "Ways", "Tradition"],
+    category: "Christian Development",
     dificultad: 1,
-    fortext: "developmental stages in faith life",
+    fortext: "stages in faith life",
     words: [
       {
-        category: "Sacramental",
-        fortext: "milestones with the church",
+        category: "Catholic",
+        fortext: "sacramental milestones with the church",
         words: [
-          "BAPTISM & RECONCILIATION",
+          "BAPTISM",
           "COMMUNION",
-          "CONFIRMATION & ANOINTING",
+          "CONFIRMATION",
           "CONSECRATION"
         ],
         help: [
@@ -1022,37 +1062,37 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Catechesis", "Anthropology", "Sacraments", "Tradition"],
+    tags: ["Catechesis", "Anthropology", "Sacraments", "Tradition","Ways"],
     category: "Human Development",
     dificultad: 2,
-    fortext: "developmental stages & characteristic sacraments",
+    fortext: "Biological & Spiritual",
     words: [
       {
-        category: "Biological",
-        fortext: "growth of the physical body",
+        category: "Universal/initial growth",
+        fortext: "Development of the physical body & Sacraments of initiation",
         words: [
-          "INFANCY & BAPTISM",
-          "CHILDHOOD & COMMUNION",
-          "ADOLESCENCE & CONFIRMATION"
+          "BABY & BAPTISM",
+          "CHILD & 1st COMMUNION",
+          "TEENAGER & CONFIRMATION"
         ],
         help: [
-          "development of motor skills & listening & speech",
-          "development of reading & writing & customs",
-          "development of sexuality & morality & friendship"
+          "development of motor skills, listening and speech & first sacrament",
+          "development of reading, writing and habits & food of faith",
+          "development of sexuality, morality and friendship & fervor of the spirit"
         ]
       },
       {
-        category: "Spiritual",
-        fortext: "maturation of the soul",
+        category: "Individual/volitional maturation",
+        fortext: "Development of the intellect (head) & Sacraments of service and healing",
         words: [
-          "YOUTH & CONSECRATION",
-          "ADULTHOOD & RECONCILIATION",
+          "YOUNG ADULT & CONSECRATION",
+          "ADULT & RECONCILIATION",
           "ELDERLY & ANOINTING"
         ],
         help: [
-          "stage of decisions & emancipation",
-          "stage of work & service",
-          "stage of rest & reflection"
+          "stage of decisions and emancipation",
+          "stage of work and service & sacrament to start over when making mistakes",
+          "stage of rest & reflection & sacrament of strength"
         ]
       }
     ]
@@ -1079,18 +1119,18 @@ export const WORD_DATA = [
   },
   {
     tags: ["Catechesis", "Physics", "Symbols"],
-    category: "Solar Realm",
+    category: "Solar",
     dificultad: 2,
     fortext: "A woman clothed with the Sun appeared",
     words: [
       {
-        category: "Nuclear Fusion",
-        fortext: "The fire of stars",
+        category: "Elements of fission",
+        fortext: "Unlimited energy",
         words: ["PLASMA", "RADIATION", "MASS"],
         help: ["More than fire", "Invisible light waves", "Attracts planets"]
       },
       {
-        category: "Effects on Earth",
+        category: "Daily effects on Earth",
         fortext: "What we see/feel because of the Sun",
         words: ["DAY", "HEAT", "LIGHT", "BRIGHTNESS"],
         help: ["When the Sun rises", "Thermal vibration", "Illuminates darkness", "Radiance"]
@@ -1099,7 +1139,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Catechesis", "Physics", "Symbols", "Bible", "O.T.", "N.T."],
-    category: "Aerial Realm",
+    category: "Aerial",
     dificultad: 2,
     fortext: "The Spirit is like the wind",
     words: [
@@ -1124,7 +1164,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Catechesis", "Physics", "Symbols", "Bible"],
-    category: "Earthy Realm",
+    category: "Earthy",
     dificultad: 2,
     fortext: "Element and place of work",
     words: [
@@ -1168,7 +1208,7 @@ export const WORD_DATA = [
     ]
   },
   {
-    tags: ["Hodos", "Catechesis", "Bible", "Logos"],
+    tags: ["Ways", "Catechesis", "Bible", "Logos"],
     category: "-α & ω+",
     dificultad: 3,
     fortext: "Before and after time",
@@ -1183,13 +1223,13 @@ export const WORD_DATA = [
         category: "Revelation",
         fortext: "What was hidden comes to light",
         words: ["MATRIMONY", "GNOSIS", "PRAISE", "REST"],
-        help: ["The wedding of the Lamb (Rev 19:7)", "«We shall see him as he is» (1Jn 3:2)", "", "I go to prepare a place for you in my Father's house"]
+        help: ["The wedding of the Lamb (Rev 19:7)", "«We shall see him as he is» (1Jn 3:2)", "Hallelujah! Hosanna!", "I go to prepare a place for you in my Father's house"]
       }
     ]
   },
   {
-    tags: ["Hodos", "Bible", "N.T."],
-    category: "The Cross",
+    tags: ["Ways", "Bible", "N.T."],
+    category: "Cross",
     dificultad: 2,
     fortext: "The tree of life",
     words: [
@@ -1214,13 +1254,13 @@ export const WORD_DATA = [
     fortext: "in the Mass",
     words: [
       {
-        category: "To the FATHER",
+        category: "to the FATHER",
         fortext: "Almighty",
         words: ["We PRAISE You", "We BLESS You", "We ADORE You", "We THANK You"],
         help: ["«…with our song»", "«…with our words»", "«..in our heart»", "«…for your immense glory»"]
       },
       {
-        category: "To the SON",
+        category: "to the SON",
         fortext: "our Lord",
         words: ["MERCY", "SIN", "PRAYER"],
         help: ["«…on us»", "«You who take away the…»", "«Receive our…»"]
@@ -1251,7 +1291,7 @@ export const WORD_DATA = [
     tags: ["History", "O.T.", "Bible","Names"],
     category: "BROTHERS",
     dificultad: 2,
-    fortext: "In the Old Testament",
+    fortext: "in the Old Testament",
     words: [
       {
         category: "United",
@@ -1298,10 +1338,10 @@ export const WORD_DATA = [
         fortext: "Liturgy of Preparation",
         words: ["HOPE", "PEACE", "JOY", "LOVE"],
         help: [
-          "... does not disappoint (Rom 5:5)",
-          "«...on earth peace to those on whom his favor rests» (Lk 2:14)",
-          "«I bring you good news of great...» (Lk 2:10)",
-          "«God sent his one and only Son into the world» (1Jn 4:9)"
+          "... does not disappoint (Rom 5,5)",
+          "«...on earth peace to those on whom his favor rests» (Lk 2,14)",
+          "«I bring you good news of great...» (Lk 2,10)",
+          "«God sent his one and only Son into the world» (1Jn 4,9)"
         ]
       },
       {
@@ -1324,7 +1364,7 @@ export const WORD_DATA = [
     words: [
       {
         category: "Kings",
-        fortext: "Magi from the East",
+        fortext: "Simbols of the pagan world",
         words: ["MELCHIOR", "CASPAR", "BALTHAZAR", "HEROD"],
         help: [
           "The old man with white beard; brings gold",
@@ -1338,16 +1378,16 @@ export const WORD_DATA = [
         fortext: "The humble dwelling of our heart",
         words: ["SHEPHERDS", "ANGELS", "OX", "DONKEY"],
         help: [
-          "«There were ... living out in the fields nearby» — Lk 2:8",
-          "«A great company of the heavenly host appeared» — Lk 2:13",
-          "«The ... knows its master» — Is 1:3",
-          "«The ... its owner's manger» — Is 1:3"
+          "«There were ... living out in the fields nearby» (Lk 2,8)",
+          "«A great company of the heavenly host appeared» (Lk 2,13)",
+          "«The ... knows its master» (Is 1,3)",
+          "«The ... its owner's manger» (Is 1,3)"
         ]
       }
     ]
   },
   {
-    tags: ["Hodos", "Bible", "Tradition"],
+    tags: ["Ways", "Bible", "Tradition"],
     category: "The Old",
     dificultad: 1,
     fortext: "shall be no more",
@@ -1365,12 +1405,12 @@ export const WORD_DATA = [
       {
         category: "in the soul",
         fortext: "Heaven",
-        words: ["DEATH & MOURNING", "CRYING & PAIN", "EVIL & LIE", "IMPURITY & STAIN"],
+        words: ["EVIL & LIE","DEATH & MOURNING", "CRYING & PAIN",  "IMPURITY & STAIN"],
         help: [
-          "only blessing (Rev 22:3)",
-          "corruption & mourning (Rev 21:4)",
-          "tears & suffering (Rev 21:4)",
-          "all white as snow (Rev 21:8;27)"
+          "only blessing (Rev 22,3)",
+          "corruption & mourning (Rev 21,4)",
+          "tears & suffering (Rev 21,4)",
+          "all white as snow (Rev 21,8;27)"
         ]
       }
     ]
@@ -1401,21 +1441,21 @@ export const WORD_DATA = [
         words: [
           "WIND & BREATH",
           "WATER & FIRE",
-          "FINGER"
+          "FINGER & HAND"
         ],
         help: [
           "«The Spirit of God was hovering over the waters» (Gen 1:2)",
           "«Born of ... and ...» (Jn 3:5)",
-          "«If I drive out demons by the ... of God» (Lk 11:20)"
+          "«If I drive out demons by the ... of God» (Lk 11:20). «Your right hand, O Yahweh, has shattered the enemy.» (Ex 15:6)"
         ]
       }
     ]
   },
   {
     tags: ["Bible"],
-    category: "MY NAME",
+    category: "NAME",
     dificultad: 1,
-    fortext: "hallowed be",
+    fortext: "of God hallowed be",
     words: [
       {
         category: "Old Testament",
@@ -1430,7 +1470,7 @@ export const WORD_DATA = [
       {
         category: "New Testament",
         fortext: "The name of the Son",
-        words: ["JESUS CHRIST", "JESUS", "IMMANUEL", "NAZARENE"],
+        words: ["JESUS-CHRIST", "JESUS", "IMMANUEL", "NAZARENE"],
         help: [
           "«Genealogy of ..., son of David, son of Abraham» (Mt 1:1) - The anointed one",
           "«She will give birth to a son, and you are to give him the name ...» (Mt 1:21) - The savior",

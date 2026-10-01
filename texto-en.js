@@ -3,10 +3,11 @@ export const EMOJI_MAP = {
   "prohibited": "🚫",
   "forbidden": "🚫",
   "do not": "🚫",
-  "love": "❤️",
+  "love": "❤️‍🔥",
   "mercy":"❤️",
   "justice":"⚖️",
-  "judgment":"⚖️"
+  "judgment":"⚖️",
+  "asks":"🙏" 
 };
 
 export const TEXT = {
@@ -14,12 +15,10 @@ export const TEXT = {
   subtitle: "Guess the word by adding vowels.",
   startTitle: "Game Setup",
   players: "Number of players",
-  playerColorsTitle: "Player colors",
-  choosePlayerColor: "Choose color for Player {n}",
+  playerColorsTitle: "Player colors {n}",
+  choosePlayerColor: "Color & name for player",
   time: "Maximum turn time (seconds)",
   rounds: "Clue rounds before reveal",
-  glosNameTitle:"Names Glosarie",
-  glosTitle:"Words Glosarie",
   categoriesTitle: "Categories",
   randomCategories: "Pick randomly",
   categoryCount: "Select the categories that will enter the game.",
@@ -80,6 +79,9 @@ export const TEXT = {
   sortDifficulty: "Difficulty",
   sortRandom: "Random",
   difficultyTagPrefix: "Difficulty",
+  glosNameTitle:"Names Glosarie",
+  glosTitle:"Words Glosarie",
+  glosCatTitle:"Categories Glosarie",
   rulesTitle: "Game Rules",
   rulesBody: `<p>1. Try to guess the capitalized words by adding the missing vowels (+3 points per word)</p>
   <p>2. Bonus: Guess the subcategory it belongs to (+1 point)</p>
@@ -87,7 +89,10 @@ export const TEXT = {
   <p>4. If no player guesses correctly, the round ends and clues and/or vowels are revealed to try again.</p>
   <p>5. You can use the "REVEAL CLUE" button to force an immediate clue in exchange for 1 point.</p>`,
   closeRules: "Close",
-  tagsAll:"All"
+  tagsAll:"All",
+  tagModeLabel: "Tag Overlap",
+  tagModeUnion: "Union",
+  tagModeIntersection: "Intersection"
 };
 
 export function t(key, vars = {}) {
