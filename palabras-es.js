@@ -89,14 +89,14 @@ export const WORD_DATA = [
       {
         category: "PRECEPTOS",
         fortext: "Deberes para/con nuestros creadores",
-        words: ["AMAR", "SANTIFICAR", "RESPETAR"],
+        words: ["AMAR", "SANTIFICAR & CELEBRAR", "RESPETAR & HONRAR"],
         help: ["...a Dios", "...las fiestas", "...a padre y madre"]
       },
       {
         category: "PROHIBICIONES",
         fortext: "Límites que protejen lo privado",
         words: ["prohibido MATAR", "prohibido ROBAR", "prohibido ADULTERAR", "prohibido MENTIR"],
-        help: ["atentar contra la vida", "tomar lo ajeno", "romper la alianza matrimonial", "decir falso testimonio"]
+        help: ["atentar contra la vida", "tomar lo ajeno", "romper la alianza matrimonial, cometer actos impuros", "decir falso testimonio"]
       }
     ]
   },
@@ -367,8 +367,8 @@ export const WORD_DATA = [
       {
         category: "Dolorosos",
         fortext: "La Pasión de Cristo",
-        words: ["ORACIÓN & HUERTO", "FLAGELACIÓN & AZOTES", "CORONACIÓN & ESPINAS", "CRUZ & CAMINO", "CRUZ & MUERTE"],
-        help: ["«Padre, si puedes librame de este caliz»", "«Lo ataron a una columna»", "«El rey de los judios»", "«Jesús cae agotado»", "«Padre, en tus manos encomiendo mi Espíritu»"]
+        words: ["ORACIÓN & HUERTO", "FLAGELACIÓN & AZOTES", "CORONACIÓN & ESPINAS", "CAMINO & CALVARIO", "CRUZ & MUERTE"],
+        help: ["«Padre, si puedes librame de este caliz»", "«Lo ataron a una columna»", "«El rey de los judios»", "Cuesta arriba, cargando la cruz «Jesús cae agotado»", "«Padre, en tus manos encomiendo mi Espíritu»"]
       },
       {
         category: "Gloriosos",
@@ -849,7 +849,7 @@ export const WORD_DATA = [
     words: [
       {
         category: "Teológicas",
-        fortext: "de los hijos de Dios (imagen & semejanza)",
+        fortext: "de los "hijos" de Dios (imagen & semejanza)",
         words: ["INTELIGENCIA", "CONCIENCIA", "VOLUNTAD", "DIGNIDAD"],
         help: [
           "imagen & semejanza de la OMNIsapiencia de Dios",
@@ -1042,7 +1042,7 @@ export const WORD_DATA = [
           "BAUTISMO",
           "COMUNIÓN",
           "CONFIRMACIÓN",
-          "CONSAGRACIÓN"
+          "CONSAGRACIÓN vocacional"
         ],
         help: [
           "Morir en la cruz - nacer en Cristo",
@@ -1087,7 +1087,7 @@ export const WORD_DATA = [
         category: "Maduración individual/volitiva",
         fortext: "Desarrollo del intelecto (cabeza) & Sacramentos de servicio y sanación",
         words: [
-          "JOVEN & CONSAGRACIÓN",
+          "JOVEN & CONSAGRACIÓN vocacional",
           "ADULTO & RECONCILIACIÓN",
           "ANCIANO & UNCIÓN"
         ],
