@@ -723,7 +723,7 @@ export const WORD_DATA = [
   },
   {
     tags: ["Liturgia", "Oración", "Catecismo","Biblia","N.T."],
-    category: "Padre Nuestro",
+    category: "Padre Nuestro [I]",
     dificultad: 1,
     fortext: "peticiones por Dios o por el Hombre",
     words: [
@@ -849,7 +849,7 @@ export const WORD_DATA = [
     words: [
       {
         category: "Teológicas",
-        fortext: "de los "hijos" de Dios (imagen & semejanza)",
+        fortext: "de los 'hijos' de Dios (imagen & semejanza)",
         words: ["INTELIGENCIA", "CONCIENCIA", "VOLUNTAD", "DIGNIDAD"],
         help: [
           "imagen & semejanza de la OMNIsapiencia de Dios",
@@ -1482,5 +1482,25 @@ help: [
   ]
   }
   ]
-}
+},
+  {
+    tags: ["Liturgia", "Oración", "Catecismo","Biblia","N.T."],
+    category: "Padre Nuestro [II]",
+    dificultad: 1,
+    fortext: "acciones que le pedimos a Dios",
+    words: [
+      {
+        category: "TEOCÉNTRICAS",
+        fortext: "Orientadas a la gloria divina",
+        words: ["SANTIFICA", "VEN", "OBRA"],
+        help: ["... TU nombre", "...TU Reino", "...TU voluntad"]
+      }, 
+      {
+        category: "ANTROPOCÉNTRICAS",
+        fortext: "Orientadas a las necesidades humanas",
+        words: ["ALIMENTA (nos)", "PERDONA (nos)", "SOSTIENE (nos)", "LIBERA (nos)"],
+        help: ["danos el pan", "... nuestras ofensas/deudas", "no nos dejes caer", "... del mal(igno)"]
+      }
+    ]
+  },
 ];
